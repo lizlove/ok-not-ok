@@ -1,0 +1,13 @@
+//- TODO: Change this layout for the stories carousel
+mixin storyCard(story = {})
+
+	.store
+		.store__hero
+			.store__actions
+				button soon
+			img(src=`/uploads/${story.photo || 'story.png'}`)
+			h2.title
+				a(href=`/story/${story.slug}`) #{story.author}
+		.store__details
+			p= story.description.split(' ').slice(0, 25).join(' ')
+
