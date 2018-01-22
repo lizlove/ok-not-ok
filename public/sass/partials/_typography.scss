@@ -1,10 +1,11 @@
-@font-face {
-    font-family: 'panama';
-    src: url('/fonts/panama-bold-webfont.woff2') format('woff2'),
-         url('/fonts/panama-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/css?family=EB+Garamond);
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 
+@font-face {
+  font-family: 'Bookman Old Style';
+  src: url('/fonts/bookman-old-style.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -13,28 +14,37 @@ html {
 
 body {
   font-size:1.5rem;
-  color:$black;
+  color:$white;
 }
 
 h1, h2, h3, h4, h5, h6, {
-  font-size: 5rem;
-  font-family: 'Panama';
+  font-size: 4rem;
+  font-family: 'EB Garamond', serif;
   font-weight: 600;
-  letter-spacing:-1px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 3.6rem;
 }
 
 a {
-  text-decoration: none;
-  color:$black;
+  text-decoration: underline;
+  color:$white;
 }
 
 p a {
-  border-bottom: 2px solid $yellow;
+  font-family: 'EB Garamond', serif;
+  border-bottom: 2px solid $white;
 }
 
 p {
   line-height: 2;
   font-size: 1.6rem;
+}
+
+li {
+  font-size: 2.4rem;
 }
 
 .title {
@@ -64,9 +74,9 @@ p {
   line-height:1.1;
   // inline link inside
   a {
-    border-bottom: 0;
-    $yellowa: rgba($yellow,0.8);
-    background-image: linear-gradient(to right, $yellowa 100%, $yellowa 50%);
+    border-bottom: 1;
+    $whitea: rgba($white,0.8);
+    background-image: linear-gradient(to right, $whitea 100%, $whitea 50%);
   }
 }
 
@@ -75,4 +85,8 @@ p {
   margin-top: -9rem;
   font-size: 10rem;
   text-align: center;
+}
+
+.header {
+  padding: 2rem 0;
 }

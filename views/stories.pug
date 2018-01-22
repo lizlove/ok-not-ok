@@ -4,7 +4,7 @@ include mixins/_storyCard
 
 block content
 	.inner
-		h2=title
-	.stores
+		h3.header=title
+	.stories.inner
 		each story in stories
 			+storyCard(store)

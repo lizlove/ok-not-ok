@@ -7,7 +7,7 @@ img {
   max-width: 100%; }
 
 body {
-  background-color: #303030;
+  background-color: #D0021B;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
@@ -56,8 +56,7 @@ table {
     HEADER, FOOTER, MAIN
 ------------------------------------- */
 .main {
-  background: #fff;
-  border-top:20px solid #fff200;
+  background: #D0021B;
   width: 100%; }
 
 .wrapper {
@@ -84,7 +83,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #000000;
+  color: #FFF;
   font-family: sans-serif;
   font-weight: 400;
   line-height: 1.4;
@@ -112,7 +111,7 @@ ol {
     margin-left: 5px; }
 
 a {
-  color: #fff200;
+  color: #9B9B9B;
   text-decoration: underline; }
 
 /* -------------------------------------
@@ -126,15 +125,15 @@ a {
   .btn table {
     width: auto; }
   .btn table td {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 5px;
     text-align: center; }
   .btn a {
-    background-color: #ffffff;
-    border: solid 1px #fff200;
+    background-color: #FFFFFF;
+    border: solid 1px #FFFFFF;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #fff200;
+    color: #D0021B;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
@@ -145,12 +144,12 @@ a {
     text-transform: capitalize; }
 
 .btn-primary table td {
-  background-color: #fff200; }
+  background-color: #FFFFFF; }
 
 .btn-primary a {
-  background-color: #fff200;
-  border-color: #fff200;
-  color: #3a3a3a; }
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #FFFFFF; }
 
 /* -------------------------------------
     OTHER STYLES THAT MIGHT BE USEFUL
@@ -196,7 +195,7 @@ a {
 
 hr {
   border: 0;
-  border-bottom: 1px solid #303030;
+  border-bottom: 1px solid #FFFFFF;
   Margin: 20px 0; }
 
 /* -------------------------------------
@@ -255,9 +254,7 @@ hr {
     line-height: inherit !important;
     text-decoration: none !important; }
   .btn-primary table td:hover {
-    background-color: #00ffde !important; }
+    background-color: #9B9B9B !important; }
   .btn-primary a:hover {
-    background-color: #00ffde !important;
-    border-color: #00ffde !important; } }
-
-
+    background-color: #9B9B9B !important;
+    border-color: #9B9B9B !important; } }
