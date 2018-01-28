@@ -31,3 +31,7 @@ Thumbs.db
 node_modules
 */node_modules
 /node_modules/*
+
+# Variables
+variables.env
+variables.env.now
