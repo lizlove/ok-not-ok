@@ -6,24 +6,45 @@
 .story {
   background: $red;
   width: 100%;
-  box-shadow: $shad;
-}
-
-.story__content {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  svg {
+
+  .story__arrows {
     height: 28px;
-    fill: white
+    fill: white;
+    margin-top: 0;
+    &--left {
+      margin: 0 8rem 0 0;
+    }
+
+    &--right {
+      margin: 0 0 0 8rem;
+    }
   }
   h2 {
-    padding: 0 8rem 0 8rem;
     text-align: center;
     max-width: 800px;
   }
 }
+
+// .story__content {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   svg {
+//     height: 28px;
+//     fill: white
+//   }
+//   h2 {
+//     padding: 0 8rem 0 8rem;
+//     text-align: center;
+//     max-width: 800px;
+//   }
+// }
+
+
 
 .story__buttons {
   display: flex;
@@ -31,39 +52,6 @@
   justify-content: center;
   align-items: center;
   button {
-    
+
   }
 }
-// .story__actions {
-//   position: relative;
-//   z-index: 2;
-//   border-bottom: 1px solid rgba(0,0,0,0.2);
-//   box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.2);
-//   margin-bottom: 50px;
-//   padding-top: 10px;
-//   padding-bottom: 20px;
-//   display: flex;
-//   color: white;
-//   align-items: center;
-//   justify-content: space-around;
-// }
-//
-// .story__action {
-//   font-size: 10px;
-//   svg {
-//     width: 25px;
-//     fill: white
-//   }
-//   &--edit {
-//     a {
-//       border-bottom: 0;
-//     }
-//   }
-// }
-//
-//
-// .story__hero {
-//   position: relative;
-//   padding: 0 10px 0 10px;
-//   text-align: right;
-// }

@@ -716,22 +716,21 @@ label {
 .story {
   background: #D0021B;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05); }
-
-.story__content {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
       align-items: center; }
-  .story__content svg {
+  .story .story__arrows {
     height: 28px;
-    fill: white; }
-  .story__content h2 {
-    padding: 0 8rem 0 8rem;
+    fill: white;
+    margin-top: 0; }
+    .story .story__arrows--left {
+      margin: 0 8rem 0 0; }
+    .story .story__arrows--right {
+      margin: 0 0 0 8rem; }
+  .story h2 {
     text-align: center;
     max-width: 800px; }
 
