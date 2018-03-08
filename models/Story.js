@@ -3,17 +3,19 @@ mongoose.Promise = global.Promise;
 const slug = require('slugs');
 
 const storySchema = new mongoose.Schema({
-	_storyId: mongoose.Schema.Types.ObjectId,
-	slug: String,
 	description: {
-		type: String,
-		trim: true
-	},
-	created: Date,
-	author: {
 		type: String,
 		trim: true,
 		required: 'Please enter'
+	},
+	slug: String,
+	created: {
+		type: Date,
+		default: Date.now
+	},
+	name: {
+		type: String,
+		trim: true
 	},
 	gender: [String]
 });
@@ -24,10 +26,8 @@ storySchema.pre('save', function(next){
 		return; //stop function from running
 	}
 	this.created = Date.now();
-	this._storyId = new mongoose.Types.ObjectId();
-	this.slug = slug(this.author);
+	this.slug = slug(this._id.toString());
 	next();
-	// TODO: make more resilient so slugs are unique
 });
 
 module.exports = mongoose.model('Story', storySchema);
