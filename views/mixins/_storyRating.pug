@@ -1,6 +1,6 @@
 mixin storyRating(store)
   form.reviewer(action='/ratings/${story._id}' method='POST')
-
   .story__ctas
-    a(href=`/stories/${story._id}/rate` class='button') Hey, that's ok
-    a(href=`/stories/${story._id}/rate` class='button') No way, not ok  
+    input(type='submit' value="Hey, that's ok" class='button') 
+    input(type='submit' value="No way, not ok" class='button') 
+    
