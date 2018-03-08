@@ -12,7 +12,9 @@ router.get('/stories/page/:page', catchErrors(storyController.getStories));
 router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
 
 // TODO: Add gender controller?
-router.post('/ratings/:id', catchErrors(ratingController.rateStory));
+router.post('/ratings/:id',
+    catchErrors(ratingController.rateStory)
+);
 router.get('/about', catchErrors(storyController.getAbout));
 
 // TODO: These can be removed once data is uploaded on the backend
