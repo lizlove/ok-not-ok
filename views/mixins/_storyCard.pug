@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 mixin storyCard(story = {})
 
 	.story
@@ -9,3 +10,22 @@ mixin storyCard(story = {})
 			a(class='button', (click)='rate(false)') Hey, that's ok
 			a(class='button', (click)='rate(true)') No way, not ok
 				
+=======
+include _storyRating
+
+mixin storyCard(story = {}, page, count)
+
+	.story
+		.story__content
+			if page > 1
+				a(href=`/stories/page/${parseInt(page) - 1}`)
+					img(src=`/images/icons/left-arrow.svg` class='story__arrows--left')
+			h2= story.description
+			if page < count
+				a(href=`/stories/page/${parseInt(page) + 1}`)
+					img(src=`/images/icons/right-arrow.svg` class='story__arrows--right')
+		+storyRating(story)
+
+		.story__results
+			h2= `hello i am the results`
+>>>>>>> Pagination.

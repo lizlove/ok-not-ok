@@ -744,6 +744,12 @@ label {
       max-width: 800px; }
 
 .story__ctas {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-top: 10rem; }
   .story__ctas .button {
     background-color: #D0021B;

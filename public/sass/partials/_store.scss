@@ -35,7 +35,10 @@
 
 
 .story__ctas {
-  margin-top: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10rem;
   .button {
     background-color: $red;
     color: $white;
