@@ -737,13 +737,23 @@ label {
       margin-top: 0; }
       .story .story__content .story__arrows--left {
         margin: 0 8rem 0 0; }
+        .story .story__content .story__arrows--left--hidden {
+          visibility: hidden; }
       .story .story__content .story__arrows--right {
         margin: 0 0 0 8rem; }
+        .story .story__content .story__arrows--right--hidden {
+          visibility: hidden; }
     .story .story__content h2 {
       text-align: center;
       max-width: 800px; }
 
 .story__ctas {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-top: 10rem; }
   .story__ctas .button {
     background-color: #D0021B;
