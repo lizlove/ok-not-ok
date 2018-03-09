@@ -33,7 +33,7 @@ exports.getStories = async (req, res) => {
 
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
-	console.log(count);
+
 	res.render('stories', { title: 'Stories', stories, page, count});
 };
 

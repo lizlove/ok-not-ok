@@ -737,8 +737,12 @@ label {
       margin-top: 0; }
       .story .story__content .story__arrows--left {
         margin: 0 8rem 0 0; }
+        .story .story__content .story__arrows--left--hidden {
+          visibility: hidden; }
       .story .story__content .story__arrows--right {
         margin: 0 0 0 8rem; }
+        .story .story__content .story__arrows--right--hidden {
+          visibility: hidden; }
     .story .story__content h2 {
       text-align: center;
       max-width: 800px; }
