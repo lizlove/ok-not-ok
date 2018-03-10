@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const storyController = require('../controllers/storyController');
+const ratingController = require('../controllers/ratingController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // Routing around
 router.get('/', catchErrors(storyController.getStories));
 router.get('/stories', catchErrors(storyController.getStories));
+router.get('/stories/page/:page', catchErrors(storyController.getStories));
 
 router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
 
-// TODO: Make these eventually
-router.post('/story/:id/rate', catchErrors(storyController.rateStory));
+// TODO: Add gender controller?
+router.post('/ratings/:id',
+    catchErrors(ratingController.rateStory)
+);
 router.get('/about', catchErrors(storyController.getAbout));
 
 // TODO: These can be removed once data is uploaded on the backend

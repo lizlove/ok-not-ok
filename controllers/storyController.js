@@ -21,10 +21,18 @@ exports.createStory = async (req, res) => {
 };
 
 exports.getStories = async (req, res) => {
-	// 1. Query the database for a list of all the stories
-	const stories = await Story.find();
-	res.render('stories', { title: 'Stories', stories});
-	// TODO: should I send all the stories at once or use pagination
+	const page = req.params.page || 1;
+	const limit = 1;
+	const skip = (page * limit) - limit;
+	const storiesPromise = Story
+		.find()
+		.skip(skip)
+		.limit(limit);
+
+	const countPromise = Story.count();
+	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
+
+	res.render('stories', { title: 'Stories', stories, page, count});
 };
 
 exports.getStoryBySlug = async (req, res, next) => {
