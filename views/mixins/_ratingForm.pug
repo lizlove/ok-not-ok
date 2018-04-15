@@ -1,0 +1,7 @@
+mixin ratingForm(store)
+  form.reviewer(action='/ratings/${story._id}' method='POST')
+  .story__ctas
+    input(type="hidden" value="true" name="ok") 
+    input(type="hidden" value="false" name="notok")
+    button.button(type='submit' id='ok-button' value="true" name="rating") Hey, that's ok
+    button.button(type='submit' id='not-button' value="false" name="rating") No way, not ok

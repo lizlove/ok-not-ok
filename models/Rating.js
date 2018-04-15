@@ -5,21 +5,32 @@ const ratingSchema = new mongoose.Schema({
 	created: {
 		type: Date,
 		default: Date.now()
+	},
+	author: {
+		type: String,
+		ref: 'Session'
+	},
+	story: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'Story',
+		required: 'You must have a story to rate.'
+	},
+	rating: {
+		type: Boolean,
+		required: 'You must rate the story as ok or not ok.'
+	},
+	gender: {
+		type: Number,
+		min: 0,
+		max: 2,
+		default: 2
 	}
-	// story: {
-	// 	type: mongoose.schema.ObjectId,
-	// 	ref: 'Story',
-	// 	required: 'You must have a story to rate.'
-	// },
-	// isOk: {
-	// 	type: boolean,
-	// 	default: true,
-	// 	required: 'You must rate the story.'
-	// },
-	// gender: {
-	// 	type: string,
-	// 	default: 'other'
-	// }
 });
+
+// TODO: Couple author and gender into an updated session schema.
+// Gender Schema
+// 0 = Female
+// 1 = Male
+// 2 = Other
 
 module.exports = mongoose.model('Rating', ratingSchema);
