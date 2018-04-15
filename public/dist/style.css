@@ -502,7 +502,7 @@ li {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #e6e6e6; }
+  border: 1px solid #9B9B9B; }
   input.input--error, textarea.input--error {
     border-color: red; }
 
@@ -513,15 +513,18 @@ label {
 .form {
   background: white;
   padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  margin-top: 4rem;
+  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+  color: #303030; }
   .form + .form {
     margin-top: 4rem; }
   .form h2 {
     margin: 0;
     font-size: 2rem;
     padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e6e6e6; }
+    text-transform: capitalize; }
+  .form .button {
+    margin-top: 4rem; }
 
 .search {
   position: relative;
@@ -1095,8 +1098,7 @@ label {
 
 .card {
   background: #D0021B;
-  padding: 5rem;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15); }
+  padding: 5rem; }
 
 pre.error {
   padding: 5rem;
