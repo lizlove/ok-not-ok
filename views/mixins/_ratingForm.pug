@@ -1,5 +1,5 @@
 mixin ratingForm(story)
-  form.reviewer
-  .story__ctas
-    button(onclick="console.log(true, `${story._id}`)" class='button' title='ok') Hey, that's ok
-    button(onclick="console.log(false, `${story._id}`)" class='button' title='notok') No way, not ok
+  form.reviewer(action=`/ratings/${story.id}` method='POST')
+    input(type='hidden' name="story" value=story._id)
+    button(type='submit' class='button__rating' value="true" name="ok-button") Hey, that's ok
+    button(type='submit' class='button__rating' value="false" name="not-button") No way, not ok

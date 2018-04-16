@@ -37,24 +37,3 @@
     }
   }
 }
-
-
-.story__ctas {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 10rem;
-  .button {
-    background-color: $red;
-    color: $white;
-    font-size: 4rem;
-    padding: 2rem 3rem;
-    text-decoration: none;
-    border: 4px solid $white;
-    border-radius: 34px;
-
-    &:first-of-type {
-      margin-right: 6rem;
-    }
-  }
-}

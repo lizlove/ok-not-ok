@@ -751,25 +751,6 @@ label {
       text-align: center;
       max-width: 800px; }
 
-.story__ctas {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  margin-top: 10rem; }
-  .story__ctas .button {
-    background-color: #D0021B;
-    color: #FFF;
-    font-size: 4rem;
-    padding: 2rem 3rem;
-    text-decoration: none;
-    border: 4px solid #FFF;
-    border-radius: 34px; }
-    .story__ctas .button:first-of-type {
-      margin-right: 6rem; }
-
 .tags {
   margin: 0;
   padding: 0;
@@ -980,60 +961,17 @@ label {
  */
 .reviewer {
   position: relative;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 2rem; }
-  .reviewer__stars {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-        justify-content: center; }
-    .reviewer__stars input {
-      display: none; }
-      .reviewer__stars input:checked ~ label {
-        color: #FFC40E; }
-      .reviewer__stars input + label {
-        font-size: 0;
-        /* These are in the opposite DOM order
-           re-order them to be visually in normal order
-           This is fine for accessibility because our labels have for()
-         */ }
-        .reviewer__stars input + label:before {
-          content: '\2605';
-          font-size: 2rem; }
-        .reviewer__stars input + label[for="star5"] {
-          -ms-flex-order: 5;
-              order: 5; }
-        .reviewer__stars input + label[for="star4"] {
-          -ms-flex-order: 4;
-              order: 4; }
-        .reviewer__stars input + label[for="star3"] {
-          -ms-flex-order: 3;
-              order: 3; }
-        .reviewer__stars input + label[for="star2"] {
-          -ms-flex-order: 2;
-              order: 2; }
-        .reviewer__stars input + label[for="star1"] {
-          -ms-flex-order: 1;
-              order: 1; }
-        .reviewer__stars input + label:hover, .reviewer__stars input + label:hover ~ label {
-          color: #ffdd74; }
-  .reviewer textarea {
-    border: 0;
-    outline: 0;
-    font-size: 2rem;
-    padding: 2rem;
-    height: 200px; }
-  .reviewer__meta {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
-    border-top: 1px solid #e6e6e6; }
-    .reviewer__meta > * {
-      -ms-flex: 1;
-          flex: 1; }
+  margin: 3rem 0; }
+  .reviewer .button__rating {
+    background-color: #D0021B;
+    color: #FFF;
+    font-size: 4rem;
+    padding: 2rem 3rem;
+    text-decoration: none;
+    border: 4px solid #FFF;
+    border-radius: 34px; }
+    .reviewer .button__rating:first-of-type {
+      margin-right: 6rem; }
 
 .pagination {
   display: -ms-flexbox;
