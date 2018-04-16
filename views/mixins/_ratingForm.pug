@@ -1,5 +1,5 @@
 mixin ratingForm(story)
-  form.reviewer(action=`/ratings/${story.id}` method='POST')
-    input(type='hidden' name="story" value=story._id)
-    button(type='submit' class='button__rating' value="true" name="ok-button") Hey, that's ok
-    button(type='submit' class='button__rating' value="false" name="not-button") No way, not ok
+  form.ratings(action=`/rating/${story._id}?rating=true` method="POST")
+    input(type='hidden' name='story' value=story._id)
+    button(type='submit' class='button__rating') Hey, that's ok
+    button(type='submit' class='button__rating' formaction=`/rating/${story._id}?rating=false`) No way, not ok

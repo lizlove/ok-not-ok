@@ -47,7 +47,7 @@ router.post('/account/reset/:token',
   catchErrors(authController.update)
 );
 
-router.post('/ratings/:id', catchErrors(ratingController.addReview));
-// router.get('/reviews/:id', catchErrors(ratingController.getReview));
+router.get('/rating/:id', catchErrors(ratingController.getRating));
+router.post('/rating/:id', catchErrors(ratingController.addRating));
 
 module.exports = router;
