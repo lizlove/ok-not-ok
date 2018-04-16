@@ -1,4 +1,5 @@
 include ./_ratingForm
+include ./_resultCard
 
 mixin storyCard(story, page, count)
 	.story
@@ -14,7 +15,13 @@ mixin storyCard(story, page, count)
 					img(src=`/images/icons/right-arrow.svg` class='story__arrows--right')
 			else
 				img(src=`/images/icons/right-arrow.svg` class='story__arrows--right--hidden')
-		.story__results
-			+ratingForm(story)
+			//- TODO: Add conditional display of rating form based on session
+		+ratingForm(story)
+		
+		if story.ratings 
+			.story__results
+				each rating in story.ratings
+					.result
+						+resultCard(rating)
 			
 			

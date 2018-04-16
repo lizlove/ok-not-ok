@@ -22,12 +22,11 @@ const ratingSchema = new mongoose.Schema({
 	gender: {
 		type: Number,
 		min: 0,
-		max: 2,
-		default: 2
+		max: 2
 	}
 });
 
-// TODO: Couple author and gender into an updated session schema.
+// TODO: Add gender to session schema.
 // Gender Schema
 // 0 = Female
 // 1 = Male

@@ -25,7 +25,7 @@ exports.getStories = async (req, res) => {
 	const limit = 1;
 	const skip = (page * limit) - limit;
 	const storiesPromise = Story
-		.find()
+		.find().populate('ratings')
 		.skip(skip)
 		.limit(limit);
 
@@ -36,7 +36,7 @@ exports.getStories = async (req, res) => {
 };
 
 exports.getStoryBySlug = async (req, res, next) => {
-	const story = await Story.findOne({ slug: req.params.slug });
+	const story = await Story.findOne({ slug: req.params.slug }).populate('author ratings');
 	if (!story) {
 		return next();
 	}

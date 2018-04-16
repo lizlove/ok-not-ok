@@ -1,0 +1,8 @@
+mixin resultCard(rating)
+  .result__header
+    .result__author
+      p= rating.author
+  .result__body
+    p= rating.rating
+    time.result__time(datetime=rating.created)= h.moment(rating.created).fromNow()
+    p= rating.gender
