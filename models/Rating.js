@@ -16,7 +16,7 @@ const ratingSchema = new mongoose.Schema({
 		required: 'You must have a story to rate.'
 	},
 	rating: {
-		type: Boolean,
+		type: Number,
 		required: 'You must rate the story as ok or not ok.'
 	},
 	gender: {

@@ -1003,19 +1003,6 @@ label {
     padding: 1rem;
     text-align: center; }
 
-.map {
-  padding: 20px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05); }
-
-#map {
-  height: 500px; }
-
-.popup {
-  width: 300px; }
-  .popup img {
-    width: 100%; }
-
 .hide {
   text-indent: -999999px;
   font-size: 0; }

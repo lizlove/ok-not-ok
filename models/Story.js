@@ -48,6 +48,21 @@ storySchema.pre('save', async function(next) {
 	next();
 });
 
+storySchema.statics.getTopStories = function(){
+	return this.aggregate([
+		// Lookup stories and populate their reviews
+		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' }},
+		// Filter for only items that have 2 or more reviews
+		{ $match: { 'ratings.1': { $exists: true } }},
+		// Add the percent ok field
+		{ $project: {
+			percentOk: { $avg: '$ratings.rating' }
+		}}
+		// Sort it by our new field, highest reviews first
+		// Limit to at most 10
+	]);
+}
+
 // find ratings where the story _id property === rating story property
 storySchema.virtual('ratings', {
   ref: 'Rating', // what model to link?

@@ -72,3 +72,9 @@ exports.updateStory = async (req, res) => {
   res.redirect(`/stories/${store._id}/edit`);
   // Redriect them the store and tell them it worked
 };
+
+exports.getTopStories = async (req, res) => {
+	const results = await Story.getTopStories();
+	res.json(results);
+	// res.render('topStories', { results, title:'⭐ Results!'});
+};
