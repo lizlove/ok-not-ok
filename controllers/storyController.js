@@ -73,8 +73,7 @@ exports.updateStory = async (req, res) => {
   // Redriect them the store and tell them it worked
 };
 
-exports.getTopStories = async (req, res) => {
-	const results = await Story.getTopStories();
-	res.json(results);
-	// res.render('topStories', { results, title:'⭐ Results!'});
+exports.getTopResults = async (req, res) => {
+	const results = await Story.getTopResults();
+	res.render('results', { results, title:'⭐ Results!'});
 };

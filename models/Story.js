@@ -48,7 +48,7 @@ storySchema.pre('save', async function(next) {
 	next();
 });
 
-storySchema.statics.getTopStories = function(){
+storySchema.statics.getTopResults = function(){
 	return this.aggregate([
 		// Lookup stories and populate their reviews
 		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' }},
@@ -56,10 +56,20 @@ storySchema.statics.getTopStories = function(){
 		{ $match: { 'ratings.1': { $exists: true } }},
 		// Add the percent ok field
 		{ $project: {
-			percentOk: { $avg: '$ratings.rating' }
-		}}
+			description: '$$ROOT.description',
+			ratings: '$$ROOT.ratings',
+			totalRatings: { $size: '$ratings'},
+			percentOk: { $trunc : { $multiply: [{ $avg: '$ratings.rating' }, 100 ] }},
+			numberOks: { $size : { $filter: {
+		     input: '$ratings',
+		     as: "rate",
+		     cond: { $gte: [ '$$rate.rating', 1] }
+		  }}}
+		}},
 		// Sort it by our new field, highest reviews first
+		{ $sort: { percentOk: 1} },
 		// Limit to at most 10
+		{ $limit: 10 }
 	]);
 }
 

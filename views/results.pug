@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .inner
+    h3 Top #{results.length} Results
+    table
+      each result, i in results 
+        tr 
+          td #{result.description}
+          td #{result.percentOk}% Ok out of #{result.totalRatings} Ratings

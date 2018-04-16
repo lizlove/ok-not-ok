@@ -22,7 +22,7 @@ router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
 
 router.get('/rating/:id', catchErrors(ratingController.getRating));
 router.post('/rating/:id', catchErrors(ratingController.addRating));
-router.get('/results', catchErrors(storyController.getTopStories));
+router.get('/results', catchErrors(storyController.getTopResults));
 
 // For authenticated users
 router.get('/submit', storyController.addStory);
