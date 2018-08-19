@@ -3,6 +3,9 @@ mixin resultCard(rating)
     .result__author
       p= rating.author
   .result__body
+    span Rating
     p= rating.rating
+    span Gender
+    p= rating.gender  
+    span.result__time Last updated: 
     time.result__time(datetime=rating.created)= h.moment(rating.created).fromNow()
-    p= rating.gender

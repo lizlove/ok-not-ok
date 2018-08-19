@@ -48,30 +48,67 @@ storySchema.pre('save', async function(next) {
 	next();
 });
 
-storySchema.statics.getTopResults = function(){
+// storySchema.statics.getTopResults = function(){
+// 	return this.aggregate([
+// 		// Lookup stories and populate their ratings
+// 		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' }},
+// 		// Filter for only items that have 2 or more ratings
+// 		{ $match: { 'ratings': { $exists: true } }},
+// 		// Add the percent ok field
+// 		{ $project: {
+// 			description: '$$ROOT.description',
+// 			ratings: '$$ROOT.ratings',
+// 			totalRatings: { $size: '$ratings'}
+// 		  }
+// 		},
+// 		// Sort it by our new field, highest ratings first
+// 		{ $sort: { percentOk: 1} },
+// 		// Limit to at most 10
+// 		{ $limit: 10 }
+// 	]);
+// }
+
+storySchema.statics.getTopResults = function() {
 	return this.aggregate([
-		// Lookup stories and populate their reviews
+		// Lookup stories and populate their ratings
 		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' }},
-		// Filter for only items that have 2 or more reviews
-		{ $match: { 'ratings.1': { $exists: true } }},
+		// Filter for only items that have 2 or more ratings
+		{ $match: { 'ratings': { $exists: true } }},
 		// Add the percent ok field
 		{ $project: {
 			description: '$$ROOT.description',
 			ratings: '$$ROOT.ratings',
 			totalRatings: { $size: '$ratings'},
 			percentOk: { $trunc : { $multiply: [{ $avg: '$ratings.rating' }, 100 ] }},
-			numberOks: { $size : { $filter: {
-		     input: '$ratings',
-		     as: "rate",
-		     cond: { $gte: [ '$$rate.rating', 1] }
-		  }}}
-		}},
-		// Sort it by our new field, highest reviews first
-		{ $sort: { percentOk: 1} },
-		// Limit to at most 10
-		{ $limit: 10 }
+			otherOk: { $size : { $filter: {
+				input: '$ratings',
+				as: "rate",
+				cond: { $and: [
+					{ $eq: [ '$$rate.rating', 1 ] },
+					{ $eq: [ '$$rate.gender', 2 ] }
+				]}
+			 }}},
+			 maleOk: { $size : { $filter: {
+				input: '$ratings',
+				as: "rate",
+				cond: { $and: [
+					{ $eq: [ '$$rate.rating', 1 ] },
+					{ $eq: [ '$$rate.gender', 1 ] }
+				]}
+			 }}},
+			 femaleOk: { $size : { $filter: {
+				input: '$ratings',
+				as: "rate",
+				cond: { $and: [
+					{ $eq: [ '$$rate.rating', 1 ] },
+					{ $eq: [ '$$rate.gender', 0 ] }
+				]}
+			 }}}
+			}
+		}
 	]);
 }
+
 
 // find ratings where the story _id property === rating story property
 storySchema.virtual('ratings', {
@@ -79,5 +116,19 @@ storySchema.virtual('ratings', {
   localField: '_id', // which field on the story?
   foreignField: 'story' // which field on the review?
 });
+
+// storySchema.aggregate([
+// 	{
+// 		$addFields: {
+// 			totalRatings: { $size: '$ratings'},
+// 			percentOk: { $trunc : { $multiply: [{ $avg: '$ratings.rating' }, 100 ] }},
+// 			numberOks: { $size : { $filter: {
+// 				input: '$ratings',
+// 				as: "rate",
+// 				cond: { $gte: [ '$$rate.rating', 1] }
+// 			 }}}
+// 		}
+// 	}
+// ]);
 
 module.exports = mongoose.model('Story', storySchema);

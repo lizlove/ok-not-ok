@@ -31,7 +31,6 @@ exports.getStories = async (req, res) => {
 
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
-
 	res.render('stories', { title: 'Stories', stories, page, count});
 };
 
@@ -41,15 +40,7 @@ exports.getStoryBySlug = async (req, res, next) => {
 		return next();
 	}
 	res.render( 'story', {story, title: "" });
-};
-
-exports.rateStory = async (req, res) => {
-  // 1. Find the store given the id
-	const story = await Story.findOne({_id: req.params.id});
-	console.log('Found story for rating', story);
-  // 2. Confirm their gender
-
-  // 3. Save the rating
+	
 };
 
 exports.editStory = async (req, res) => {
@@ -75,5 +66,6 @@ exports.updateStory = async (req, res) => {
 
 exports.getTopResults = async (req, res) => {
 	const results = await Story.getTopResults();
-	res.render('results', { results, title:'⭐ Results!'});
+	res.json(results);
+	// res.render('results', { results, title:'⭐ Results!'});
 };
