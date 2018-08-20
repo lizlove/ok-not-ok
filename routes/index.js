@@ -50,4 +50,6 @@ router.post('/account/reset/:token',
   catchErrors(authController.update)
 );
 
+router.post('/account/:gender', catchErrors(authController.setGender));
+
 module.exports = router;

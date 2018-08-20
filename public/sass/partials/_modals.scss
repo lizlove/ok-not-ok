@@ -1,0 +1,72 @@
+.modal {
+    display: block;
+    /* TODO: Probably need media queries here */
+    width: 600px;
+    max-width: 100%;
+    height: 400px;
+    max-height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* If known, negative margins are probably better (less chance of blurry text). */
+    /* margin: -200px 0 0 -200px; */
+    background: white;
+    border-radius: 5px;
+}
+
+.closed {
+    display: none;
+}
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: rgba(216, 216, 216, 0.8);
+}
+
+.modal__guts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 2rem;
+    color: $black;
+    text-align: center;
+}
+
+.modal__link {
+    text-decoration: underline;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: $black;
+}
+
+.modal__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 2rem 5rem;
+}
+
+.modal__button {
+    background-color: $white;
+    color: $black;
+    font-size: 3rem;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border: 4px solid $black;
+    border-radius: 34px;
+}
+
+.ratings .modal__button:first-of-type {
+    margin-right: 6rem;
+}

@@ -94,3 +94,14 @@ exports.update = async (req, res) => {
   req.flash('success', '💃 Nice! Your password has been reset! You are now logged in!');
   res.redirect('/');
 };
+
+exports.setGender = async(req, res) => {
+    // Get gender from params and add to session
+    req.session.gender = req.query.gender;
+
+    if (!req.isAuthenticated()) {
+      next(); // carry on! They are not a user with an account!
+      return;
+    }
+    req.
+}

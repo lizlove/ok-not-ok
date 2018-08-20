@@ -1,0 +1,15 @@
+mixin modalForm()
+  form#modal-overlay.modal__overlay(action=`/rating/${story._id}?rating=1` method="POST")
+  div.modal#modal
+    .modal__guts
+        h1.modal__header Modal Example
+        div.modal__row
+            button.modal__button Male
+            button.modal__button Female
+            button.modal__button Other
+        br
+        a.modal__link(href="/") Prefer not to answer
+        p.modal__text 
+        |We use this for statistical results, 
+        br
+        |we do not save any personal information.

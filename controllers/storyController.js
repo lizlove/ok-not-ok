@@ -66,6 +66,7 @@ exports.updateStory = async (req, res) => {
 exports.getTopResults = async (req, res) => {
 	const results = await Story.getTopResults();
 	res.json(results);
+	// TODO: Style this 
 	// res.render('results', { results, title:'⭐ Results!'});
 };
 

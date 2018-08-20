@@ -1,5 +1,6 @@
 mixin loginForm()
-  form.form(action="/login" method="POST" class='card')
+  form.form(action="/login" method="POST")
+    h2 Sign into your account
     label(for="email") Email address
     input(type="email" name="email") 
     label(for="password") Password

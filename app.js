@@ -57,6 +57,8 @@ app.use((req, res, next) => {
   res.locals.flashes = req.flash();
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
+  // TODO: how is this best stored?
+  res.locals.modal = true;
   next();
 });
 
