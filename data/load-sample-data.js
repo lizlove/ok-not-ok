@@ -6,19 +6,19 @@ mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 // import all of our models - they need to be imported only once
-const Store = require('../models/Story');
-const Review = require('../models/Rating');
+const Story = require('../models/Story');
+const Rating = require('../models/Rating');
 const User = require('../models/User');
-s
 
-const stores = JSON.parse(fs.readFileSync(__dirname + '/stores.json', 'utf-8'));
-const reviews = JSON.parse(fs.readFileSync(__dirname + '/reviews.json', 'utf-8'));
+
+const stories = JSON.parse(fs.readFileSync(__dirname + '/stories.json', 'utf-8'));
+const ratings = JSON.parse(fs.readFileSync(__dirname + '/ratings.json', 'utf-8'));
 const users = JSON.parse(fs.readFileSync(__dirname + '/users.json', 'utf-8'));
 
 async function deleteData() {
   console.log('😢😢 Goodbye Data...');
-  await Store.remove();
-  await Review.remove();
+  await Story.remove();
+  await Rating.remove();
   await User.remove();
   console.log('Data Deleted. To load sample data, run\n\n\t npm run sample\n\n');
   process.exit();
@@ -26,8 +26,8 @@ async function deleteData() {
 
 async function loadData() {
   try {
-    await Store.insertMany(stores);
-    await Review.insertMany(reviews);
+    await Story.insertMany(stories);
+    await Rating.insertMany(ratings);
     await User.insertMany(users);
     console.log('👍👍👍👍👍👍👍👍 Done!');
     process.exit();

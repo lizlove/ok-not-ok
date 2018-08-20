@@ -16,7 +16,6 @@ exports.addStory = (req, res) => {
 exports.createStory = async (req, res) => {
 	const story = await new Story(req.body).save(); //req.body adheres to the schema
 	req.flash('success', `Successfully Created Story ${story.slug}.`);
-  // TODO: repurpose this for next story!
 	res.redirect(`/story/${story.slug}`);
 };
 
@@ -25,7 +24,8 @@ exports.getStories = async (req, res) => {
 	const limit = 1;
 	const skip = (page * limit) - limit;
 	const storiesPromise = Story
-		.find().populate('ratings')
+		.find()
+		.populate('ratings')
 		.skip(skip)
 		.limit(limit);
 
@@ -46,12 +46,11 @@ exports.getStoryBySlug = async (req, res, next) => {
 exports.editStory = async (req, res) => {
   // 1. Find the store given the ID
   const story = await Story.findOne({ _id: req.params.id });
-  // 2. confirm they are the owner of the store
+  // 2. confirm they are the owner of the story
   // TODO
   // 3. Render out the edit form so the user can update their store
   res.render('editStore', { title: `Edit ${story.slug}`, story });
 };
-
 
 exports.updateStory = async (req, res) => {
   // find and update the store
@@ -69,3 +68,13 @@ exports.getTopResults = async (req, res) => {
 	res.json(results);
 	// res.render('results', { results, title:'⭐ Results!'});
 };
+
+exports.updateRatingStats = async (req, res) => {
+	const [story] = await Story.updateRatingStats(req.body.story);
+	const updated = await Story.findOneAndUpdate({ _id: req.params.id }, story, {
+    new: true, // return the new store instead of the old one
+    runValidators: true
+	}).exec();
+	req.flash('success', 'Rating Saved!');
+  res.redirect('back');
+}

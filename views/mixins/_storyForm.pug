@@ -1,8 +1,8 @@
 mixin storyForm(story = {})
 	form.form(action='/submit' method='POST')
 		h2 Share Your Story 
-		label(for='author') Name
-		input(type='text' name='author')
+		label(for='name') Name
+		input(type='text' name='name')
 		label(for='description') Description
 		textarea(name='description')
 		- const choices = ['Female', 'Male', 'Other']
@@ -10,6 +10,6 @@ mixin storyForm(story = {})
 		ul.tags
 			each choice in choices 
 				.tag.tag__choice
-					input(type='radio' id=choice value=choice name='tags' checked=(gender.includes(choice)))
+					input(type='radio' id=choice value=choices.findIndex(gen => gen === choice) name='gender' checked=(gender.includes(choice)))
 					label(for=choice) #{choice}
 		input(type='submit' value='Save →' class='button')

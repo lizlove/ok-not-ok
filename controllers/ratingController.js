@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Rating = mongoose.model('Rating');
+const Story = mongoose.model('Story');
 
-exports.addRating = async (req, res) => {
+exports.addRating = async (req, res, next) => {
   // Set story id.
   req.body.story = req.params.id;
   // Get rating from params and set as boolean.
@@ -12,7 +13,8 @@ exports.addRating = async (req, res) => {
   let gender = req.session.cookie.gender ? parseInt(req.session.cookie.gender) : 2;
   req.body.gender = gender;
   const newRating = new Rating(req.body);
-  await newRating.save();
-  req.flash('success', 'Rating Saved!');
-  res.redirect('back');
+  newRating.save();
+  next();
+  // req.flash('success', 'Rating Saved!');
+  // res.redirect('back');
 };

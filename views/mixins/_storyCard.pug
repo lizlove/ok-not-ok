@@ -20,8 +20,7 @@ mixin storyCard(story, page, count)
 		
 		if story.ratings 
 			.story__results
-				each rating in story.ratings
-					.result
-						+resultCard(rating)
-			
-			
+				p=story.totalRatings
+				p=story.percentOk
+				p=story.otherOk
+				p=story.femaleOk

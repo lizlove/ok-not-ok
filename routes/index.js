@@ -21,7 +21,7 @@ router.get('/stories/:id/edit', catchErrors(storyController.editStory));
 router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
 
 router.get('/rating/:id', catchErrors(ratingController.getRating));
-router.post('/rating/:id', catchErrors(ratingController.addRating));
+router.post('/rating/:id', ratingController.addRating, storyController.updateRatingStats);
 router.get('/results', catchErrors(storyController.getTopResults));
 
 // For authenticated users
