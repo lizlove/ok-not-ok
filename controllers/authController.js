@@ -96,12 +96,15 @@ exports.update = async (req, res) => {
 };
 
 exports.setGender = async(req, res) => {
+    console.log('IN SET GENDER');
     // Get gender from params and add to session
     req.session.gender = req.query.gender;
-
+    req.session.modal = res.locals.modal = false;
     if (!req.isAuthenticated()) {
-      next(); // carry on! They are not a user with an account!
+      res.redirect('/'); // carry on! They are not a user with an account!
       return;
     }
-    req.
+    // TODO: Add gender setting to user account
+    req.flash('success', 'Sweet! Your gender preference has been set')
+    res.redirect('/');
 }
