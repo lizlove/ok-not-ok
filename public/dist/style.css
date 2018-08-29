@@ -762,6 +762,12 @@ label {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center; }
+    .story .story__content--edit {
+      font-size: 10px;
+      border-bottom: 0; }
+      .story .story__content--edit svg {
+        width: 25px;
+        fill: white; }
     .story .story__content .story__arrows {
       height: 28px;
       fill: white;

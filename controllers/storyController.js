@@ -15,7 +15,7 @@ exports.addStory = (req, res) => {
 
 exports.createStory = async (req, res) => {
 	const story = await new Story(req.body).save(); //req.body adheres to the schema
-	req.flash('success', `Successfully Created Story ${story.slug}.`);
+	req.flash('success', `Successfully Created the Story, ${capitalizeFirstLetter(story.slug)}.`);
 	res.redirect(`/story/${story.slug}`);
 };
 
@@ -44,12 +44,10 @@ exports.getStoryBySlug = async (req, res, next) => {
 };
 
 exports.editStory = async (req, res) => {
-  // 1. Find the store given the ID
+  // 1. Find the store given the id
   const story = await Story.findOne({ _id: req.params.id });
-  // 2. confirm they are the owner of the story
-  // TODO
-  // 3. Render out the edit form so the user can update their store
-  res.render('editStore', { title: `Edit ${story.slug}`, story });
+  // 2. Render out the edit form so the user can update their store
+  res.render('editStory', { title: `Edit the Story, ${capitalizeFirstLetter(story.slug)}`, story });
 };
 
 exports.updateStory = async (req, res) => {
@@ -59,8 +57,8 @@ exports.updateStory = async (req, res) => {
     runValidators: true
   }).exec();
   req.flash('success', `Successfully updated <strong>${story.slug}</strong>. <a href="/story/${story.slug}">View Store →</a>`);
-  res.redirect(`/stories/${store._id}/edit`);
-  // Redriect them the store and tell them it worked
+  res.redirect(`/stories/${story._id}/edit`);
+  // Redriect them the story and tell them it worked
 };
 
 exports.getTopResults = async (req, res) => {
@@ -78,4 +76,8 @@ exports.updateRatingStats = async (req, res) => {
 	}).exec();
 	req.flash('success', 'Rating Saved!');
   res.redirect('back');
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

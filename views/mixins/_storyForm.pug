@@ -1,15 +1,15 @@
 mixin storyForm(story = {})
-	form.form(action='/submit' method='POST')
-		h2 Share Your Story 
+	form.form(action=`/add/${story._id || ''}` method='POST')
+		h2=title ? title : 'Share a story'
 		label(for='name') Name
-		input(type='text' name='name')
+		input(type='text' name='name' value=story.name)
 		label(for='description') Description
-		textarea(name='description')
-		- const choices = ['Female', 'Male', 'Other']
+		textarea(name='description')= story.description
+		- const choices = ['Female', 'Male', 'Nonbinary']
 		- const gender = story.gender || [];
 		ul.tags
 			each choice in choices 
 				.tag.tag__choice
-					input(type='radio' id=choice value=choices.findIndex(gen => gen === choice) name='gender' checked=(gender.includes(choice)))
+					input(type='radio' id=choice value=choices.findIndex(gen => gen === choice) name='gender' checked=(choices.indexOf(choice) === gender))
 					label(for=choice) #{choice}
 		input(type='submit' value='Save →' class='button')

@@ -6,9 +6,9 @@ mixin modalForm()
         div.modal__row
             button(class='modal__button' type='submit' ) Male
             button(class='modal__button' type='submit' formaction=`/account/gender?gender=0`) Female
-            button(class='modal__button' type='submit' formaction=`/account/gender?gender=2`) Other
+            button(class='modal__button' type='submit' formaction=`/account/gender?gender=2`) Nonbinary
         br
-        button(class='modal__link' formaction='/account/gender?gender=2') Prefer not to answer
+        button(class='modal__link' type='submit' formaction='/account/gender?gender=2') Prefer not to answer
         p.modal__text 
         |We use this for statistical results, 
         br

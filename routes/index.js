@@ -14,7 +14,7 @@ router.get('/about', catchErrors(storyController.getAbout));
 router.get('/stories', catchErrors(storyController.getStories));
 router.get('/stories/page/:page', catchErrors(storyController.getStories));
 
-// TODO: Finish editing interface
+// TODO: Add authentication: authController.isLoggedIn,
 router.get('/stories/:id/edit', catchErrors(storyController.editStory));
 
 // TODO: Configure for sharing with share icon
@@ -26,7 +26,8 @@ router.get('/results', catchErrors(storyController.getTopResults));
 
 // For authenticated users
 router.get('/submit', storyController.addStory);
-router.post('/submit', catchErrors(storyController.createStory)); //wraps async+await mongoose function in higher order error handling function
+router.post('/add', catchErrors(storyController.createStory));
+router.post('/add/:id', catchErrors(storyController.updateStory));
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
@@ -51,5 +52,6 @@ router.post('/account/reset/:token',
 );
 
 router.post('/account/gender', catchErrors(authController.setGender));
+// TODO: Add a route for a user who declines to state/be counted...
 
 module.exports = router;

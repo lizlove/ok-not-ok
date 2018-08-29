@@ -28,6 +28,6 @@ const ratingSchema = new mongoose.Schema({
 // Gender Schema
 // 0 = Female
 // 1 = Male
-// 2 = Other
+// 2 = Nonbinary = Other
 
 module.exports = mongoose.model('Rating', ratingSchema);

@@ -1,52 +1,125 @@
-[
-    {
-        "_id": "5aa0ce119ed72e4599f8e80c",
-        "slug": "liz",
-        "name": "liz",
-        "author": "5aa0ce119ed72e4599f8e80c",
-        "description": "here is a story all about how my life got flip turned upside down.",
-        "gender": 1,
-        "created": "2018-03-08T05:45:53.360Z",
-        "__v": 0
+[{
+    "_id": {
+        "$oid": "5b79f9da058411c157a243f4"
     },
-    {
-        "_id": "5aa1a44d9abc11d74f4e8945",
-        "slug": "marnie",
-        "name": "Marnie",
-        "author": "5aa1a44d9abc11d74f4e8945",
-        "description": "A stranger at an MBA party put his arm around me and said \"you look like you fuck like a truck.\"",
-        "gender": 0,
-        "created": "2018-03-08T20:59:57.564Z",
-        "__v": 0
+    "created": {
+        "$date": {
+            "$numberLong": "1534720474364"
+        }
     },
-    {
-        "_id": "5aa1a4789abc11d74f4e8947",
-        "slug": "raj",
-        "name": "Raj",
-        "author": "5aa1a4789abc11d74f4e8947",
-        "description": "A new colleague uses the word \"whorehouse\" in a business analogy",
-        "gender": 1,
-        "created": "2018-03-08T21:00:40.580Z",
-        "__v": 0
+    "name": "Lenny",
+    "description": "She smelled my butt without asking.",
+    "gender": {
+        "$numberInt": "2"
     },
-    {
-        "_id": "5ad3aee87be893939077b3d3",
-        "slug": "juli",
-        "name": "Juli",
-        "author": "5ad3aee87be893939077b3d3",
-        "description": "On a conference call, an industry expert on the call shares that he and I have the same number of years experience but I am better looking than him",
-        "gender": 1,
-        "created": "2018-03-08T21:01:23.266Z",
-        "__v": 0
+    "slug": "lenny",
+    "__v": {
+        "$numberInt": "0"
     },
-    {
-        "_id": "5ad3aee87be893939077b3d3",
-        "slug": "john",
-        "author": "John",
-        "name": "5ad3aee87be893939077b3d3",
-        "description": "A member of senior management told me he had feelings for me and wondered if I would go out with him.  I learned later he used the same words and plea to at least 3 other colleagues in my office",
-        "gender": 1,
-        "created": "2018-03-08T21:02:00.538Z",
-        "__v": 0
+    "femaleOk": {
+        "$numberInt": "0"
+    },
+    "nonbinaryOk": {
+        "$numberInt": "9"
+    },
+    "percentOk": {
+        "$numberInt": "27"
+    },
+    "totalRatings": {
+        "$numberInt": "33"
     }
+},
+{
+    "_id": {
+        "$oid": "5b79f9f4058411c157a243f6"
+    },
+    "created": {
+        "$date": {
+            "$numberLong": "1534720500770"
+        }
+    },
+    "name": "Froggie",
+    "description": "I went a-courting, and I did ride.",
+    "gender": {
+        "$numberInt": "1"
+    },
+    "slug": "froggie",
+    "__v": {
+        "$numberInt": "0"
+    },
+    "femaleOk": {
+        "$numberInt": "0"
+    },
+    "nonbinaryOk": {
+        "$numberInt": "6"
+    },
+    "percentOk": {
+        "$numberInt": "60"
+    },
+    "totalRatings": {
+        "$numberInt": "10"
+    }
+},
+{
+    "_id": {
+        "$oid": "5b79fa40c95ce2c16ee9d317"
+    },
+    "created": {
+        "$date": {
+            "$numberLong": "1534720576242"
+        }
+    },
+    "name": "Sting",
+    "description": "Every move she makes, every breath she takes, I'm watching her.",
+    "gender": {
+        "$numberInt": "1"
+    },
+    "slug": "sting",
+    "__v": {
+        "$numberInt": "0"
+    },
+    "femaleOk": {
+        "$numberInt": "0"
+    },
+    "nonbinaryOk": {
+        "$numberInt": "6"
+    },
+    "percentOk": {
+        "$numberInt": "35"
+    },
+    "totalRatings": {
+        "$numberInt": "17"
+    }
+},
+{
+    "_id": {
+        "$oid": "5b870bffa08d860e4b33e97e"
+    },
+    "totalRatings": {
+        "$numberInt": "0"
+    },
+    "percentOk": {
+        "$numberInt": "0"
+    },
+    "nonbinaryOk": {
+        "$numberInt": "0"
+    },
+    "femaleOk": {
+        "$numberInt": "0"
+    },
+    "name": "Crystal",
+    "description": "He hit me and it felt like a kiss.\r\nHe hit me, but it didn't hurt me\r\nHe couldn't stand to hear me say that I'd been with someone new, and when I told him I had been untrue, he hit me and it felt like a kiss. He hit me and I knew he loved me.",
+    "gender": {
+        "$numberInt": "0"
+    },
+    "created": {
+        "$date": {
+            "$numberLong": "1535577087842"
+        }
+    },
+    "slug": "crystal",
+    "__v": {
+        "$numberInt": "0"
+    }
+}
 ]

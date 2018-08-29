@@ -34,7 +34,7 @@ const storySchema = new mongoose.Schema({
 			type: Number,
 			default: 0
 		},
-		otherOk: {
+		nonbinaryOk: {
 			type: Number,
 			default: 0
 		},
@@ -51,7 +51,7 @@ const storySchema = new mongoose.Schema({
 // Gender Schema
 // 0 = Female
 // 1 = Male
-// 2 = Other
+// 2 = Nonbinary = Other
 
 storySchema.pre('save', async function (next) {
 	if (!this.isModified('')) {
@@ -82,7 +82,7 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 			$addFields: {
 				totalRatings: { $size: '$ratings' },
 				percentOk: { $trunc: { $multiply: [{ $avg: '$ratings.rating' }, 100] } },
-				otherOk: {
+				nonbinaryOk: {
 					$size: {
 						$filter: {
 							input: '$ratings',
