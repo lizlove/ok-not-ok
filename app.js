@@ -42,7 +42,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 60000}
+  cookie: { maxAge: 31557600}
 }));
 
 // // Passport JS is what we use to handle our logins
@@ -59,12 +59,11 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
   res.locals.modal = false;
-  // TODO: Configure modals setting
-  // if (req.session.modal) {
-  //   req.session.modal = res.locals.modal = false;
-  // } else {
-  //   req.session.modal = res.locals.modal = true;
-  // }
+  if (res.locals.user.gender || req.session.modal) {
+    req.session.modal = res.locals.modal = false;
+  } else {
+    req.session.modal = res.locals.modal = true;
+  }
   next();
 });
 
