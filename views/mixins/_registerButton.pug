@@ -1,9 +1,5 @@
 mixin registerButton()
   form.form(action='/register' method='GET' class='agreement')
     h2 Join Ok, not ok
-    div.agreement--row
-        input(type='checkbox' name='agreement' onChange="document.getElementById('allowRegistration').disabled = !this.checked;" class='agreement--checkbox') 
-        label(for='agreement') I agree to the 
-            a(href='/terms' class='agreement--link') terms and conditions
-            | .
-    input.button(type='submit' value='Register' id='allowRegistration' )
+    p Add a disclaimer here about joining? 
+    input.button(type='submit' value='Register →' id='allowRegistration')

@@ -3,46 +3,46 @@ mongoose.Promise = global.Promise;
 const slug = require('slugs');
 
 const storySchema = new mongoose.Schema({
-		description: {
-			type: String,
-			trim: true,
-			required: 'Please enter a story'
-		},
-		slug: String,
-		created: {
-			type: Date,
-			default: Date.now
-		},
-		name: {
-			type: String,
-			required: 'Please provide an author name'
-		},
-		author: {
-			type: mongoose.Schema.ObjectId,
-			ref: 'User'
-		},
-		gender: {
-			type: Number,
-			min: 0,
-			max: 2
-		},
-		totalRatings: {
-			type: Number,
-			default: 0
-		},
-		percentOk: {
-			type: Number,
-			default: 0
-		},
-		nonbinaryOk: {
-			type: Number,
-			default: 0
-		},
-		femaleOk: {
-			type: Number,
-			default: 0
-		}
+	description: {
+		type: String,
+		trim: true,
+		required: 'Please enter a story'
 	},
+	slug: String,
+	created: {
+		type: Date,
+		default: Date.now
+	},
+	name: {
+		type: String,
+		required: 'Please provide an author name'
+	},
+	author: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User'
+	},
+	gender: {
+		type: Number,
+		min: 0,
+		max: 2
+	},
+	totalRatings: {
+		type: Number,
+		default: 0
+	},
+	percentOk: {
+		type: Number,
+		default: 0
+	},
+	nonbinaryOk: {
+		type: Number,
+		default: 0
+	},
+	femaleOk: {
+		type: Number,
+		default: 0
+	}
+},
 	{
 		toJSON: { virtuals: true },
 		toObject: { virtuals: true },
@@ -66,7 +66,6 @@ storySchema.pre('save', async function (next) {
 	if (storiesWithSlug.length) {
 		this.slug = `${this.slug}-${storiesWithSlug.length + 1}`;
 	}
-	console.log('total ratings', this.totalRatings);
 	next();
 });
 
@@ -76,8 +75,8 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 		// lookup stories and populate their ratings
 		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' } },
 		// 	// filter for only items that have 2 or more ratings
-		{ $match: { _id: {$eq: objectId} } },
-	 	// add values for the statistics fields
+		{ $match: { _id: { $eq: objectId } } },
+		// add values for the statistics fields
 		{
 			$addFields: {
 				totalRatings: { $size: '$ratings' },
@@ -134,16 +133,16 @@ storySchema.statics.getTopResults = function () {
 	return this.aggregate([
 		// lookup stories and populate their ratings
 		{ $lookup: { from: 'ratings', localField: '_id', foreignField: 'story', as: 'ratings' } },
-		// filter for only items that have 2 or more ratings
+		// filter for only items that have ratings
 		{ $match: { 'ratings': { $exists: true } } },
 	]);
 }
 
 // find ratings where the story _id property === rating story property
 storySchema.virtual('ratings', {
-	ref: 'Rating', // what model to link?
-	localField: '_id', // which field on the story?
-	foreignField: 'story' // which field on the review?
+	ref: 'Rating', // model to link
+	localField: '_id', // field on the story
+	foreignField: 'story' // field on the rating
 });
 
 module.exports = mongoose.model('Story', storySchema);

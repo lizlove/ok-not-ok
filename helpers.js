@@ -20,6 +20,5 @@ exports.siteName = `Ok, not ok`;
 exports.menu = [
   { slug: '/stories', title: 'Stories', icon: 'store', },
   { slug: '/results', title: 'Results', icon: 'tag', },
-  { slug: '/submit', title: 'Submit', icon: 'submit', },
   { slug: '/about', title: 'About', icon: 'about', }
 ];

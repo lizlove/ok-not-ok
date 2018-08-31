@@ -10,16 +10,15 @@ mixin storyCard(story, page, count)
 			else
 				img(src=`/images/icons/left-arrow.svg` class='story__arrows--left--hidden')
 			h2= story.description
-			//- TODO: Only display if logged in
-			a(class="story__content--edit" href=`/stories/${story._id}/edit`)
-				!=h.icon('pencil')
+			if user
+				a(class="story__content--edit" href=`/stories/${story._id}/edit`)
+					!=h.icon('pencil')
 			if page < count
 				a(href=`/stories/page/${parseInt(page) + 1}`)
 					img(src=`/images/icons/right-arrow.svg` class='story__arrows--right')
 			else
 				img(src=`/images/icons/right-arrow.svg` class='story__arrows--right--hidden')
 		+ratingForm(story)
-		
 		if story.ratings 
 			.story__results
 				p=story.totalRatings

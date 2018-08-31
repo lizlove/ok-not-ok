@@ -98,6 +98,7 @@ exports.update = async (req, res) => {
 exports.setGender = async (req, res) => {
   // TODO: Fix set gender
   // Get gender from params and add to session
+  console.log(req.session.gender, req.query.gender, 'IN GENDER');
   req.session.gender = req.query.gender;
   req.session.modal = res.locals.modal = false;
   if (!req.isAuthenticated()) {

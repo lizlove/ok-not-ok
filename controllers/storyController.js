@@ -44,9 +44,9 @@ exports.getStoryBySlug = async (req, res, next) => {
 };
 
 exports.editStory = async (req, res) => {
-  // 1. Find the store given the id
+  // find the store given the id
   const story = await Story.findOne({ _id: req.params.id });
-  // 2. Render out the edit form so the user can update their store
+  // render out the edit form so the user can update their store
   res.render('editStory', { title: `Edit the Story, ${capitalizeFirstLetter(story.slug)}`, story });
 };
 
@@ -64,7 +64,7 @@ exports.updateStory = async (req, res) => {
 exports.getTopResults = async (req, res) => {
 	const results = await Story.getTopResults();
 	res.json(results);
-	// TODO: Style this 
+	// TODO: Style this page
 	// res.render('results', { results, title:'⭐ Results!'});
 };
 

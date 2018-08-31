@@ -25,7 +25,7 @@ router.post('/rating/:id', ratingController.addRating, storyController.updateRat
 router.get('/results', catchErrors(storyController.getTopResults));
 
 // For authenticated users
-router.get('/submit', storyController.addStory);
+router.get('/submit', authController.isLoggedIn, storyController.addStory);
 router.post('/add', catchErrors(storyController.createStory));
 router.post('/add/:id', catchErrors(storyController.updateStory));
 

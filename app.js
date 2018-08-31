@@ -12,6 +12,7 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+require('./handlers/passport');
 
 // create our Express app
 const app = express();
@@ -57,11 +58,13 @@ app.use((req, res, next) => {
   res.locals.flashes = req.flash();
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
-  if (req.session.modal) {
-    req.session.modal = res.locals.modal = false;
-  } else {
-    req.session.modal = res.locals.modal = true;
-  }
+  res.locals.modal = false;
+  // TODO: Configure modals setting
+  // if (req.session.modal) {
+  //   req.session.modal = res.locals.modal = false;
+  // } else {
+  //   req.session.modal = res.locals.modal = true;
+  // }
   next();
 });
 
