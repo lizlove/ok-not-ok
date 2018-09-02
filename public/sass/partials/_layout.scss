@@ -1,19 +1,48 @@
+/* -------------------------------------
+    LAYOUT
+------------------------------------- */
+
 html {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 body {
-  background: $red;
+    background: $red;
 }
 
 .body__scroll--no {
-  overflow: hidden;
+    overflow: hidden;
+}
+
+.header {
+  padding: 2rem 0;
 }
 
 .inner {
-  max-width: 900px;
-  margin: 0 auto;
-  @media all and (max-width: 900px) {
-    padding: 2rem;
-  }
+    max-width: 900px;
+    margin: 0 auto;
+    @media all and (max-width: 900px) {
+        padding: 2rem;
+    }
+}
+
+.content {
+  min-height: calc(100vh - 250px);
+}
+
+.footer {
+    height: 50px;
+    margin-top: -50px;
+    @media all and (max-width: 900px) {
+        .footer {
+            height: 30px;
+            margin-top: -30px;
+        }
+    }
+    @media all and (max-width: 650px) {
+        .footer {
+            height: 20px;
+            margin-top: -20px;
+        }
+    }
 }

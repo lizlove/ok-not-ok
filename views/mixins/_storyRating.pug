@@ -1,0 +1,9 @@
+mixin storyRating(total, nonbin, female, male)
+    - const strTotal = total ? total.toString() + '%' : '0%'
+    - const strnonbin = nonbin ? nonbin.toString() + '%' : '0%'
+    - const strfem = nonbin ? female.toString() + '%' : '0%'
+    - const strmale = male ? male.toString() + '%' : '0%'
+    .results__container
+        div(class="results__bar" style={width: strTotal, background: '#a9a9a9', height: '4rem'}) !{strTotal}
+        div(class="results__stats") 
+            p !{strnonbin} nonbinary / !{strfem} female / !{strmale} male

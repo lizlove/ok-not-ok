@@ -1,5 +1,6 @@
 include ./_ratingForm
 include ./_resultCard
+include ./_storyRating
 
 mixin storyCard(story, page, count)
 	.story
@@ -20,8 +21,18 @@ mixin storyCard(story, page, count)
 				img(src=`/images/icons/right-arrow.svg` class='story__arrows--right--hidden')
 		+ratingForm(story)
 		if story.ratings 
-			.story__results
-				p=story.totalRatings
-				p=story.percentOk
-				p=story.otherOk
-				p=story.femaleOk
+			.results
+				.results__row
+					h3.results__heading Not Ok
+					//- - const percentNot = 100 - story.percentOk
+					//- - const totalNot = story.totalRatings * (percentNot / 100)
+					//- - const nonbinNot = 100 - story.nonbinaryOk
+					//- - const femaleNot = 100 - story.femaleOk
+					//- - const maleNot = 100 - story.maleOk
+					+storyRating(percentNot, nonbinNot, femaleNot, maleNot)
+				.results__row
+					h3.results__heading Ok
+					//- - const nonbinOk = 100 - story.nonbinaryOk
+					//- - const femaleOk = 100 - story.femaleOk
+					//- - const maleOk = 100 - story.maleOk
+					+storyRating(story.percentOk, story.nonbinaryOk, story.femaleOk, story.maleOk)

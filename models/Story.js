@@ -38,7 +38,23 @@ const storySchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	nonbinaryNot: {
+		type: Number,
+		default: 0
+	},
 	femaleOk: {
+		type: Number,
+		default: 0
+	},
+	femaleNot: {
+		type: Number,
+		default: 0
+	},
+	maleOk: {
+		type: Number,
+		default: 0
+	},
+	maleNot: {
 		type: Number,
 		default: 0
 	}
@@ -80,6 +96,24 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 		{
 			$addFields: {
 				totalRatings: { $size: '$ratings' },
+				totalOk: {
+					$size: {
+						$filter: {
+							input: '$ratings',
+							as: "rate",
+							cond: { $eq: ['$$rate.rating', 1] }
+						}
+					}
+				},
+				totalNot: {
+					$size: {
+						$filter: {
+							input: '$ratings',
+							as: "rate",
+							cond: { $eq: ['$$rate.rating', 0] }
+						}
+					}
+				},
 				percentOk: { $trunc: { $multiply: [{ $avg: '$ratings.rating' }, 100] } },
 				nonbinaryOk: {
 					$size: {
@@ -89,6 +123,20 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 							cond: {
 								$and: [
 									{ $eq: ['$$rate.rating', 1] },
+									{ $eq: ['$$rate.gender', 2] }
+								]
+							}
+						}
+					}
+				},
+				nonbinaryNot: {
+					$size: {
+						$filter: {
+							input: '$ratings',
+							as: "rate",
+							cond: {
+								$and: [
+									{ $eq: ['$$rate.rating', 0] },
 									{ $eq: ['$$rate.gender', 2] }
 								]
 							}
@@ -109,6 +157,20 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 						}
 					}
 				},
+				maleNot: {
+					$size: {
+						$filter: {
+							input: '$ratings',
+							as: "rate",
+							cond: {
+								$and: [
+									{ $eq: ['$$rate.rating', 0] },
+									{ $eq: ['$$rate.gender', 1] }
+								]
+							}
+						}
+					}
+				},
 				femaleOk: {
 					$size: {
 						$filter: {
@@ -117,6 +179,20 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 							cond: {
 								$and: [
 									{ $eq: ['$$rate.rating', 1] },
+									{ $eq: ['$$rate.gender', 0] }
+								]
+							}
+						}
+					}
+				},
+				femaleNot: {
+					$size: {
+						$filter: {
+							input: '$ratings',
+							as: "rate",
+							cond: {
+								$and: [
+									{ $eq: ['$$rate.rating', 0] },
 									{ $eq: ['$$rate.gender', 0] }
 								]
 							}

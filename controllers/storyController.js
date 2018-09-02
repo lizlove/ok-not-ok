@@ -31,6 +31,7 @@ exports.getStories = async (req, res) => {
 
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
+	console.log(stories[0]);
 	res.render('stories', { title: 'Stories', stories, page, count});
 };
 
@@ -40,7 +41,6 @@ exports.getStoryBySlug = async (req, res, next) => {
 		return next();
 	}
 	res.render( 'story', {story, title: "" });
-	
 };
 
 exports.editStory = async (req, res) => {
@@ -63,9 +63,7 @@ exports.updateStory = async (req, res) => {
 
 exports.getTopResults = async (req, res) => {
 	const results = await Story.getTopResults();
-	res.json(results);
-	// TODO: Style this page
-	// res.render('results', { results, title:'⭐ Results!'});
+	res.render('results', { results, title:'⭐ Results!'});
 };
 
 exports.updateRatingStats = async (req, res) => {

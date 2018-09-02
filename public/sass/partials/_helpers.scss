@@ -1,3 +1,7 @@
+/* -------------------------------------
+    HELPERS
+------------------------------------- */
+
 .hide {
   text-indent: -999999px;
   font-size: 0;
@@ -7,7 +11,7 @@
   border: 0;
   background: $yellow;
   color: $black;
-  font-family: 'Panama';
+  font-family: $serif;
   font-weight: 600;
 }
 

@@ -1,6 +1,13 @@
+/* -------------------------------------
+    STORY
+------------------------------------- */
+
 .stories {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 9rem;
+    margin-bottom: 9rem;
+    max-width: 800px;
 }
 
 .story {
@@ -23,17 +30,18 @@
             }
         }
         .story__arrows {
-            height: 28px;
             fill: white;
             margin-top: 0;
             &--left {
                 margin: 0 8rem 0 0;
+                max-height: 30px;
                 &--hidden {
                     visibility: hidden;
                 }
             }
             &--right {
                 margin: 0 0 0 8rem;
+                max-height: 28px;
                 &--hidden {
                     visibility: hidden;
                 }

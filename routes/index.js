@@ -13,19 +13,16 @@ router.get('/about', catchErrors(storyController.getAbout));
 // TODO: Add randomization on initial landing
 router.get('/stories', catchErrors(storyController.getStories));
 router.get('/stories/page/:page', catchErrors(storyController.getStories));
-
-// TODO: Add authentication: authController.isLoggedIn,
-router.get('/stories/:id/edit', catchErrors(storyController.editStory));
-
-// TODO: Configure for sharing with share icon
 router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
+
+router.get('/submit', storyController.addStory);
 
 router.get('/rating/:id', catchErrors(ratingController.getRating));
 router.post('/rating/:id', ratingController.addRating, storyController.updateRatingStats);
 router.get('/results', catchErrors(storyController.getTopResults));
 
 // For authenticated users
-router.get('/submit', storyController.addStory);
+router.get('/stories/:id/edit', authController.isLoggedIn, storyController.editStory);
 router.post('/add', catchErrors(storyController.createStory));
 router.post('/add/:id', catchErrors(storyController.updateStory));
 

@@ -59,11 +59,11 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
   res.locals.modal = false;
-  if (res.locals.user.gender || req.session.modal) {
-    req.session.modal = res.locals.modal = false;
-  } else {
-    req.session.modal = res.locals.modal = true;
-  }
+  // if (res.locals.user.gender || req.session.modal) {
+  //   req.session.modal = res.locals.modal = false;
+  // } else {
+  //   req.session.modal = res.locals.modal = true;
+  // }
   next();
 });
 

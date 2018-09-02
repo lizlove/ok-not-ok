@@ -1,68 +1,69 @@
-input, textarea {
-  width:100%;
-  padding:10px;
-  border: 1px solid $gray;
-  &.input {
-    &--error {
-      border-color: red;
+/* -------------------------------------
+    FORMS
+------------------------------------- */
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $gray;
+    &.input {
+        &--error {
+            border-color: red;
+        }
     }
-  }
 }
 
 label {
-  padding: 10px 0;
-  display: block;
+    padding: 10px 0;
+    display: block;
 }
 
 .form {
-  background: white;
-  padding: 2rem;
-  margin-top: 4rem;
-  box-shadow: $grad;
-  color: $black;
-  & + .form {
+    background: white;
+    padding: 2rem;
     margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-  // I know this isn't bem but meh
-  h2 {
-    margin: 0;
-    font-size: 2rem;
-    padding-bottom: 2rem;
-    text-transform: capitalize;
-  }
-  .button {
-    margin-top: 4rem;
-  }
+    box-shadow: $grad;
+    color: $black;
+    &+.form {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    } // I know this isn't bem but meh
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        text-transform: capitalize;
+    }
+    .button {
+        margin-top: 4rem;
+    }
 }
 
 .form__link {
-  color: $black;
-  margin-top: 1rem;
-  text-align: center;
+    color: $black;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .agreement {
-  width: auto;
-
-  &__row {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: flex-start;
-    padding: 0 5px;
-    margin-top: 1rem;
-  }
-
-  &__checkbox {
-    margin-right: 10px;
-    padding: 10px 0;
     width: auto;
-    line-height: 1.5;
-  }
-
-  &__link {
-    color: black;
-  }
+    &__row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: flex-start;
+        padding: 0 5px;
+        margin-top: 1rem;
+    }
+    &__checkbox {
+        margin-right: 10px;
+        padding: 10px 0;
+        width: auto;
+        line-height: 1.5;
+    }
+    &__link {
+        color: black;
+    }
 }
