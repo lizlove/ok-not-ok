@@ -2,14 +2,14 @@ mixin modalForm()
   div.modal__overlay
   div.modal
     form.modal__guts(action=`/account/gender?gender=1` method="POST")
-        h1.modal__header Modal Example
+        h1.modal__header How do you identify?
         div.modal__row
-            button(type='submit' class='modal__button' ) Male
-            button(type='submit' class='modal__button' formaction=`/account/gender?gender=0`) Female
-            button(type='submit' class='modal__button' formaction=`/account/gender?gender=2`) Nonbinary
+            button(type='submit' class='button modal__button' ) Male
+            button(type='submit' class='button modal__button' formaction=`/account/gender?gender=2`) Nonbinary
+            button(type='submit' class='button modal__button' formaction=`/account/gender?gender=0`) Female
         br
-        button(class='modal__link' type='submit' formaction='/account/gender?gender=88') Prefer not to answer
+        button(class='button modal__link' type='submit' formaction='/account/gender?gender=88') I prefer not to state
         p.modal__text 
-        |We use this for statistical results, 
+        |We use this information for statistical results, 
         br
-        |we do not save any personal information.
+        |and do not save any personal information.

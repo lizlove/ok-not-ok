@@ -1,6 +1,6 @@
 include ./_ratingForm
 include ./_resultCard
-include ./_storyRating
+include ./_storyResults
 
 mixin storyCard(story, page, count)
 	.story
@@ -27,9 +27,9 @@ mixin storyCard(story, page, count)
 					- let percentNot = 100 - story.percentOk
 					- let nots = [story.nonbinaryNot, story.femaleNot, story.maleNot];
 					- let [nonbinNot, femaleNot, maleNot] = nots.map(rating => Math.round((rating / story.totalNot) * 100))
-					+storyRating(percentNot, nonbinNot, femaleNot, maleNot)
+					+storyResults(percentNot, nonbinNot, femaleNot, maleNot)
 				.results__row
 					h3.results__heading Ok
 					- let oks = [story.nonbinaryOk, story.femaleOk, story.maleOk];
 					- let [nonbinOk, femaleOk, maleOk] = oks.map(rating => Math.round((rating / story.totalOk) * 100))
-					+storyRating(story.percentOk, nonbinOk, femaleOk, maleOk)
+					+storyResults(story.percentOk, nonbinOk, femaleOk, maleOk)
