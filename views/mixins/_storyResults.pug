@@ -1,4 +1,4 @@
-mixin storyRating(...items)
+mixin storyResults(...items)
     - let [total, nonbin, fem, male] = items.map(item => item ? item.toString() + '%' : '0%')
     .results__container
         div(class="results__bar" style={width: total, background: '#a9a9a9', height: '4rem'}) !{total}
