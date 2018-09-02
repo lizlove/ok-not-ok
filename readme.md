@@ -8,14 +8,14 @@ Think that someone is over-reacting and want some crowd-sourced backup?
 Submit to Ok, Not Ok and see what the world thinks. Type your sort in on the submit page `/submit` participants will respond with their opinions on whether `Hey, that's ok` or `No way, not ok`. See responses broken down by gender and check out the `/results` page to find out how your story compares to others. 
 
 <!-- TODO: Replace with gifs from hosted site -->
-![Submit to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/sortinghat.gif)
+![Submit to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/submit.gif)
 
 ## Provide feedback
 
 While you are on the site, click through other stories to provide your own feedback on ambiguous encounters. Your opinion matters!
 
 <!-- TODO: Replace with gifs from hosted site -->
-![Sorting Hat Bot for Slack](http://sorting-hat-bot.herokuapp.com/images/sortinghat.gif)
+![Sorting Hat Bot for Slack](http://sorting-hat-bot.herokuapp.com/images/rating.gif)
 
 
 ## About Ok, Not Ok
