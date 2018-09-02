@@ -24,14 +24,12 @@ mixin storyCard(story, page, count)
 			.results
 				.results__row
 					h3.results__heading Not Ok
-					- const percentNot = 100 - story.percentOk
-					- const nonbinNot = 100 - story.nonbinaryOk
-					- const femaleNot = 100 - story.femaleOk
-					- const maleNot = 100 - story.maleOk
+					- let percentNot = 100 - story.percentOk
+					- let nots = [story.nonbinaryNot, story.femaleNot, story.maleNot];
+					- let [nonbinNot, femaleNot, maleNot] = nots.map(rating => (rating / story.totalNot) * 100)
 					+storyRating(percentNot, nonbinNot, femaleNot, maleNot)
 				.results__row
 					h3.results__heading Ok
-					- const nonbinOk = 100 - story.nonbinaryOk
-					- const femaleOk = 100 - story.femaleOk
-					- const maleOk = 100 - story.maleOk
-					+storyRating(story.percentOk, story.nonbinaryOk, story.femaleOk, story.maleOk)
+					- let oks = [story.nonbinaryOk, story.femaleOk, story.maleOk];
+					- let [nonbinOk, femaleOk, maleOk] = oks.map(rating => (rating / story.totalOk) * 100)
+					+storyRating(story.percentOk, nonbinOk, femaleOk, maleOk)

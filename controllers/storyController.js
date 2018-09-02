@@ -32,8 +32,6 @@ exports.getStories = async (req, res) => {
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
 	res.render('stories', { title: 'Stories', stories, page, count});
-	// res.json(stories);
-	console.log(stories);
 };
 
 exports.getStoryBySlug = async (req, res, next) => {

@@ -109,7 +109,7 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 						$filter: {
 							input: '$ratings',
 							as: "rate",
-							cond: { $eq: [ '$$rate.rating', 1 ] }
+							cond: { $eq: [ '$$rate.rating', 1] }
 						}
 					}
 				},
