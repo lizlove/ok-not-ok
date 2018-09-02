@@ -30,6 +30,14 @@ const storySchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	totalOk: {
+		type: Number,
+		default: 0
+	},
+	totalNot: {
+		type: Number,
+		default: 0
+	},
 	percentOk: {
 		type: Number,
 		default: 0
@@ -101,7 +109,7 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 						$filter: {
 							input: '$ratings',
 							as: "rate",
-							cond: { $eq: ['$$rate.rating', 1] }
+							cond: { $eq: [ '$$rate.rating', 1 ] }
 						}
 					}
 				},
@@ -110,7 +118,11 @@ storySchema.statics.updateRatingStats = async function (storyId) {
 						$filter: {
 							input: '$ratings',
 							as: "rate",
-							cond: { $eq: ['$$rate.rating', 0] }
+							cond: {
+								$and: [
+									{ $eq: ['$$rate.rating', 0] }
+								]
+							}
 						}
 					}
 				},
