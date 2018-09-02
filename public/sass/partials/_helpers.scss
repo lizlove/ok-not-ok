@@ -3,34 +3,37 @@
 ------------------------------------- */
 
 .hide {
-  text-indent: -999999px;
-  font-size: 0;
+    text-indent: -999999px;
+    font-size: 0;
 }
 
 .button {
-  border: 0;
-  background: $yellow;
-  color: $black;
-  font-family: $serif;
-  font-weight: 600;
+    border: 0;
+    background: $yellow;
+    color: $black;
+    font-family: $serif;
+    font-weight: 600;
+    &:hover {
+        transform: scale(1.07);
+    }
 }
 
 .avatar {
- min-width: 20px;
- height: 20px;
- border-radius: 50%;
- align-self: center;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    align-self: center;
 }
 
 .card {
-  background: $red;
-  padding: 5rem;
+    background: $red;
+    padding: 5rem;
 }
 
 pre.error {
-  padding: 5rem;
-  background: white;
-  line-height: 3;
-  white-space: pre-line;
-  color: blue;
+    padding: 5rem;
+    background: white;
+    line-height: 3;
+    white-space: pre-line;
+    color: blue;
 }
