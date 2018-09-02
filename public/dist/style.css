@@ -978,8 +978,8 @@ label {
   font-family: "Spectral", serif;
   font-weight: 600; }
   .button:hover {
-    -ms-transform: scale(1.07);
-        transform: scale(1.07); }
+    -ms-transform: scale(1.03);
+        transform: scale(1.03); }
 
 .avatar {
   min-width: 20px;
