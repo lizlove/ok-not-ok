@@ -19,7 +19,12 @@ const userSchema = new Schema({
     type: String,
     required: 'Please supply a name',
     trim: true
-  }
+  },
+	gender: {
+		type: Number,
+		min: 0,
+		max: 2
+	}
 });
 
 userSchema.virtual('gravatar').get(function() {

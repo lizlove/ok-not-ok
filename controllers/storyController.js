@@ -6,11 +6,11 @@ exports.homePage = (req, res) => {
 };
 
 exports.getAbout = async (req, res) => {
-	res.render('about', { title: 'About'});
+	res.render('about', { title: 'About' });
 };
 
 exports.addStory = (req, res) => {
-	res.render('editStory', {title: 'Add Story'}); //use same template for add and edit store
+	res.render('editStory', { title: 'Add Story' }); //use same template for add and edit store
 };
 
 exports.createStory = async (req, res) => {
@@ -31,7 +31,7 @@ exports.getStories = async (req, res) => {
 
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
-	res.render('stories', { title: 'Stories', stories, page, count});
+	res.render('stories', { title: 'Stories', stories, page, count });
 };
 
 exports.getStoryBySlug = async (req, res, next) => {
@@ -39,42 +39,40 @@ exports.getStoryBySlug = async (req, res, next) => {
 	if (!story) {
 		return next();
 	}
-	res.render( 'story', {story, title: "" });
+	res.render('story', { story, title: "" });
 };
 
 exports.editStory = async (req, res) => {
-  // find the store given the id
-  const story = await Story.findOne({ _id: req.params.id });
-  // render out the edit form so the user can update their store
-  res.render('editStory', { title: `Edit the Story, ${capitalizeFirstLetter(story.slug)}`, story });
+	// find the store given the id
+	const story = await Story.findOne({ _id: req.params.id });
+	// render out the edit form so the user can update their store
+	res.render('editStory', { title: `Edit the Story, ${capitalizeFirstLetter(story.slug)}`, story });
 };
 
 exports.updateStory = async (req, res) => {
-  // find and update the store
-  const story = await Story.findOneAndUpdate({ _id: req.params.id }, req.body, {
-    new: true, // return the new store instead of the old one
-    runValidators: true
-  }).exec();
-  req.flash('success', `Successfully updated <strong>${story.slug}</strong>. <a href="/story/${story.slug}">View Store →</a>`);
-  res.redirect(`/stories/${story._id}/edit`);
-  // Redriect them the story and tell them it worked
+	const story = await Story.findOneAndUpdate({ _id: req.params.id }, req.body, {
+		new: true, // return the new store instead of the old one
+		runValidators: true
+	}).exec();
+	req.flash('success', `Successfully updated <strong>${story.slug}</strong>. <a href="/story/${story.slug}">View Store →</a>`);
+	res.redirect(`/stories/${story._id}/edit`);
 };
 
 exports.getTopResults = async (req, res) => {
 	const results = await Story.getTopResults();
-	res.render('results', { results, title:'⭐ Results!'});
+	res.render('results', { results, title: '⭐ Results!' });
 };
 
 exports.updateRatingStats = async (req, res) => {
 	const [story] = await Story.updateRatingStats(req.body.story);
 	const updated = await Story.findOneAndUpdate({ _id: req.params.id }, story, {
-    new: true, // return the new store instead of the old one
-    runValidators: true
+		new: true, // return the new store instead of the old one
+		runValidators: true
 	}).exec();
 	req.flash('success', 'Rating Saved!');
-  res.redirect('back');
+	res.redirect(`/stories`);
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }

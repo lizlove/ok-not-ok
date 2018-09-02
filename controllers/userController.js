@@ -48,7 +48,6 @@ exports.updateAccount = async (req, res) => {
     name: req.body.name,
     email: req.body.email
   };
-
   const user = await User.findOneAndUpdate(
     { _id: req.user._id },
     { $set: updates },
@@ -56,4 +55,17 @@ exports.updateAccount = async (req, res) => {
   );
   req.flash('success', 'Updated the profile!');
   res.redirect('back');
+};
+
+exports.setGender = async (req, res) => {
+  const update = {
+    gender: req.body.gender
+  };
+  const user = await User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $set: update },
+    { new: true, runValidators: true, context: 'query' }
+  )
+  req.flash('success', 'Sweet! Your gender preference has been saved')
+  res.redirect('/'); 
 };

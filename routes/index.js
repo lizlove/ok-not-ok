@@ -6,7 +6,7 @@ const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
-// Routing around
+// routing around
 router.get('/', catchErrors(storyController.getStories));
 router.get('/about', catchErrors(storyController.getAbout));
 
@@ -18,11 +18,17 @@ router.get('/story/:slug', catchErrors(storyController.getStoryBySlug));
 router.get('/submit', storyController.addStory);
 
 router.get('/rating/:id', catchErrors(ratingController.getRating));
-router.post('/rating/:id', ratingController.addRating, storyController.updateRatingStats);
+router.post('/rating/:id',
+  ratingController.addRating,
+  catchErrors(storyController.updateRatingStats)
+);
 router.get('/results', catchErrors(storyController.getTopResults));
 
-// For authenticated users
-router.get('/stories/:id/edit', authController.isLoggedIn, storyController.editStory);
+// for authenticated users
+router.get('/stories/:id/edit',
+  authController.isLoggedIn,
+  catchErrors(storyController.editStory)
+);
 router.post('/add', catchErrors(storyController.createStory));
 router.post('/add/:id', catchErrors(storyController.updateStory));
 
@@ -30,7 +36,7 @@ router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 router.get('/register', userController.registerForm);
 
-// Registration with validation and autologin
+// registration with validation and autologin
 router.post('/register',
   userController.validateRegister,
   userController.register,
@@ -48,7 +54,9 @@ router.post('/account/reset/:token',
   catchErrors(authController.update)
 );
 
-router.post('/account/gender', catchErrors(authController.setGender));
-// TODO: Add a route for a user who declines to state/be counted...
+router.post('/account/gender',
+  authController.setGender,
+  catchErrors(userController.setGender)
+);
 
 module.exports = router;

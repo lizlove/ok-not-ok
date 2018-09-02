@@ -14,7 +14,6 @@ const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 require('./handlers/passport');
 
-// create our Express app
 const app = express();
 
 // view engine setup
@@ -42,14 +41,14 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 31557600}
+  cookie: { maxAge: 31557600 }
 }));
 
-// // Passport JS is what we use to handle our logins
+// Passport JS is used handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
 
-// // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+// flash middleware let's us use req.flash('error', 'Farts!'), which will then pass that message to the next page the user requests
 app.use(flash());
 
 // pass variables to our templates + all requests
@@ -58,12 +57,14 @@ app.use((req, res, next) => {
   res.locals.flashes = req.flash();
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
-  res.locals.modal = false;
-  // if (res.locals.user.gender || req.session.modal) {
-  //   req.session.modal = res.locals.modal = false;
-  // } else {
-  //   req.session.modal = res.locals.modal = true;
-  // }
+  // whitelist for login and registration routes to avoid popping the modal
+  if (req.path === '/login' || req.path === '/register' || req.path === '/account') {
+    res.locals.modalSeen = true;
+  } else if (res.locals.user && res.locals.user.gender || req.session.gender) {
+    res.locals.modalSeen = true;
+  } else {
+    res.locals.modalSeen = false;
+  }
   next();
 });
 
@@ -79,10 +80,10 @@ app.use('/', routes);
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
 
-// One of our error handlers will see if these errors are just validation errors
+// error handlers will see if these errors are just validation errors
 app.use(errorHandlers.flashValidationErrors);
 
-// Otherwise this was a really bad error we didn't expect! Shoot eh
+// otherwise this was a really bad error we didn't expect! eek
 if (app.get('env') === 'development') {
   /* Development Error Handler - Prints stack trace */
   app.use(errorHandlers.developmentErrors);
@@ -91,5 +92,4 @@ if (app.get('env') === 'development') {
 // production error handler
 app.use(errorHandlers.productionErrors);
 
-// done! we export it so we can start the site in start.js
 module.exports = app;

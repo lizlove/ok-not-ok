@@ -8,8 +8,8 @@ html
     link(rel="shortcut icon" type="image/png" href="/images/icons/favicon.png")
     link(href="https://fonts.googleapis.com/css?family=Libre+Franklin|Spectral" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  body(class=locals.modal ? 'body__scroll--no': '')
-    if locals.modal
+  body(class=locals.modalSeen ? '' : 'body__scroll--no')
+    if !locals.modalSeen
       +modalForm()
     header.top.inner
       nav.nav
