@@ -647,6 +647,54 @@ label {
     margin: 0; }
 
 /* -------------------------------------
+    HEART
+------------------------------------- */
+.heart__button {
+  background: none;
+  border: 0;
+  outline: 0;
+  position: relative; }
+  .heart__button:after {
+    content: '\2665\FE0F';
+    font-size: 20px;
+    position: absolute;
+    opacity: 0;
+    top: 0; }
+  .heart__button svg {
+    width: 25px;
+    fill: white; }
+  .heart__button--hearted svg {
+    fill: red; }
+  .heart__button--float:after {
+    animation: fly 2.5s 1 ease-out; }
+
+@keyframes fly {
+  0% {
+    transform: translateY(0);
+    left: 0;
+    opacity: 1; }
+  20% {
+    left: 20px; }
+  40% {
+    left: -20px; }
+  60% {
+    left: 20px; }
+  80% {
+    left: -20px; }
+  100% {
+    transform: translateY(-400px);
+    opacity: 0;
+    left: 20px; } }
+
+@keyframes lightspeed-in {
+  0% {
+    transform: translateX(-200%);
+    opacity: 1; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+/* -------------------------------------
     NAVBARS
 ------------------------------------- */
 .nav {
@@ -878,11 +926,13 @@ label {
   .results__container {
     width: 100%;
     background-color: #FFF;
-    height: 4rem; }
+    height: 4rem;
+    overflow: hidden; }
   .results__bar {
     color: #FFF;
     text-align: right;
-    padding: 10px; }
+    padding: 10px;
+    animation: 1s lightspeed-in ease forwards; }
   .results__stats {
     -ms-transform: translateY(-9rem);
         transform: translateY(-9rem); }
@@ -939,46 +989,6 @@ pre.error {
   line-height: 3;
   white-space: pre-line;
   color: blue; }
-
-/* -------------------------------------
-    HEART
-------------------------------------- */
-.heart__button {
-  background: none;
-  border: 0;
-  outline: 0;
-  position: relative; }
-  .heart__button:after {
-    content: '\2665\FE0F';
-    font-size: 20px;
-    position: absolute;
-    opacity: 0;
-    top: 0; }
-  .heart__button svg {
-    width: 25px;
-    fill: white; }
-  .heart__button--hearted svg {
-    fill: red; }
-  .heart__button--float:after {
-    animation: fly 2.5s 1 ease-out; }
-
-@keyframes fly {
-  0% {
-    transform: translateY(0);
-    left: 0;
-    opacity: 1; }
-  20% {
-    left: 20px; }
-  40% {
-    left: -20px; }
-  60% {
-    left: 20px; }
-  80% {
-    left: -20px; }
-  100% {
-    transform: translateY(-400px);
-    opacity: 0;
-    left: 20px; } }
 
 /* -------------------------------------
     MODALS

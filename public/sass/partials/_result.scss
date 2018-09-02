@@ -17,11 +17,13 @@
         width: 100%;
         background-color: $white;
         height: 4rem;
+        overflow: hidden;
     }
     &__bar {
         color: $white;
         text-align: right;
         padding: 10px;
+        animation: 1s lightspeed-in ease forwards;
     }
     &__stats {
         transform: translateY(-9rem);
