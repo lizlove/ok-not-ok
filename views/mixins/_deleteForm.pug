@@ -1,0 +1,7 @@
+mixin deleteForm(story)
+    form.form(action=`/stories/${story._id}/delete` method='POST')
+        h2='Delete this story'
+        .agreement__row 
+            input(type='checkbox' name='agreement' class="agreement__checkbox")
+            p I <em>really</em> want to delete this story. I understand that this is <strong>irreversible</strong>.
+        input(type='submit' value='Delete →' class='button')

@@ -1,7 +1,9 @@
 extends layout
 
 include mixins/_storyForm
+include mixins/_deleteForm
 
 block content 
 	.inner
 		+storyForm(story, title)
+		+deleteForm(story)

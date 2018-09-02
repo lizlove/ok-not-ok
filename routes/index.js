@@ -20,15 +20,13 @@ router.get('/submit', storyController.addStory);
 router.get('/rating/:id', catchErrors(ratingController.getRating));
 router.post('/rating/:id',
   ratingController.addRating,
-  catchErrors(storyController.updateRatingStats)
+  storyController.updateRatingStats
 );
 router.get('/results', catchErrors(storyController.getTopResults));
 
 // for authenticated users
-router.get('/stories/:id/edit',
-  authController.isLoggedIn,
-  catchErrors(storyController.editStory)
-);
+router.get('/stories/:id/edit', authController.isLoggedIn, storyController.editStory);
+router.post('/stories/:id/delete', authController.isLoggedIn, storyController.deleteStory);
 router.post('/add', catchErrors(storyController.createStory));
 router.post('/add/:id', catchErrors(storyController.updateStory));
 
@@ -51,12 +49,12 @@ router.post('/account/forgot', catchErrors(authController.forgot));
 router.get('/account/reset/:token', catchErrors(authController.reset));
 router.post('/account/reset/:token',
   authController.confirmedPasswords,
-  catchErrors(authController.update)
+  authController.update
 );
 
 router.post('/account/gender',
   authController.setGender,
-  catchErrors(userController.setGender)
+  userController.setGender
 );
 
 module.exports = router;

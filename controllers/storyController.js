@@ -20,7 +20,7 @@ exports.createStory = async (req, res) => {
 };
 
 exports.getStories = async (req, res) => {
-	const page = req.params.page || 1;
+	let page = req.params.page || 1;
 	const limit = 1;
 	const skip = (page * limit) - limit;
 	const storiesPromise = Story
@@ -31,7 +31,11 @@ exports.getStories = async (req, res) => {
 
 	const countPromise = Story.count();
 	const [stories, count] = await Promise.all([storiesPromise, countPromise]);
-	res.render('stories', { title: 'Stories', stories, page, count });
+	if (page > count) {
+		res.redirect(`/stories/page/1`);
+	} else {
+		res.render('stories', { title: 'Stories', stories, page, count });
+	}
 };
 
 exports.getStoryBySlug = async (req, res, next) => {
@@ -54,7 +58,7 @@ exports.updateStory = async (req, res) => {
 		new: true, // return the new store instead of the old one
 		runValidators: true
 	}).exec();
-	req.flash('success', `Successfully updated <strong>${story.slug}</strong>. <a href="/story/${story.slug}">View Store →</a>`);
+	req.flash('success', `Successfully updated <strong>${story.slug}</strong>. <a href="/story/${story.slug}">View story →</a>`);
 	res.redirect(`/stories/${story._id}/edit`);
 };
 
@@ -69,7 +73,24 @@ exports.updateRatingStats = async (req, res) => {
 		new: true, // return the new store instead of the old one
 		runValidators: true
 	}).exec();
-	req.flash('success', 'Rating Saved!');
+	let ref = req.get('Referrer');
+	let page = ref.substr(ref.lastIndexOf('/') + 1);
+	page = page === 'stories' ? 1 : parseInt(page) + 1;
+	res.redirect(`/stories/page/${page}`);
+}
+
+exports.deleteStory = async (req, res) => {
+	const story = await Story.findOne({ _id: req.params.id });
+	req.sanitizeBody('agreement');
+	req.checkBody('agreement', 'You must acknowledge this is irreversible!').equals('on');
+	const errors = req.validationErrors();
+	if (errors) {
+	  req.flash('error', errors.map(err => err.msg));
+	  res.render('editStory', { title: `Edit the Story, ${capitalizeFirstLetter(story.slug)}`, story, flashes: req.flash() });
+	  return; // stop the fn from running
+	}
+	const deleted = await Story.findByIdAndDelete(story._id);
+	req.flash('info', `Successfully deleted <strong>${story.slug}</strong>. 🚮`);
 	res.redirect(`/stories`);
 }
 

@@ -10,11 +10,10 @@ exports.addRating = async (req, res, next) => {
   // default gender to unsaved number, 88, if none stored.
   let gender = req.session.gender ? parseInt(req.session.gender) : 88;
   // do not save ratings from 88 users, otherwise save
-  if(gender !== 88) {
+  if(gender != 88) {
     req.body.gender = gender;
     const newRating = new Rating(req.body);
     newRating.save();
-    return;
   }
   next();
 };
