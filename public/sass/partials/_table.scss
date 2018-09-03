@@ -3,18 +3,30 @@
 ------------------------------------- */
 
 .table {
-    width: 100%;
-    td {
-      padding: 5px;
-    }
-    tr:nth-child(even) {
-      background: white;
-    }
-    tr:nth-child(odd):not(:first-child) {
-      background: #f7f7f7;
-    }
-    thead tr {
-      background: $black;
-      color: white;
+  width: 100%;
+  border-collapse: collapse;
+  padding: 5px;
+  &__description {
+      font-size: 3rem;
+      line-height: 3.5rem;
+      font-family: "Spectral", serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      width: 45%;
+      vertical-align: middle;
+      padding: 10px 30px 10px 5px;
+  }
+  &__results {
+      width: 50%;
+      padding: 10px 5px;
+  }
+  &__row {
+    border-bottom: 2px solid white;
+  }
+  &__div {
+    margin: 0 0 3rem 0;
+    .results__heading {
+      font-size: 2rem;
     }
   }
+}
