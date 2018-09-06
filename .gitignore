@@ -5,7 +5,6 @@
 *.log
 cache/*
 backup
-_files
 log
 log/**/*
 .monitor
