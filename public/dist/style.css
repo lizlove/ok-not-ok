@@ -872,6 +872,9 @@ hr {
 /* -------------------------------------
     NAVBARS
 ------------------------------------- */
+.mobile__logo {
+  display: none; }
+
 .nav {
   font-family: "Spectral", serif;
   font-weight: 600;
@@ -894,7 +897,8 @@ hr {
   .nav__item {
     display: -ms-flexbox;
     display: flex;
-    margin: 0; }
+    margin: 0;
+    font-size: 2rem; }
     .nav__item--logoli {
       margin-right: auto;
       margin-bottom: 0; }
@@ -912,8 +916,7 @@ hr {
         align-items: baseline;
     -ms-flex-pack: center;
         justify-content: center;
-    transition: transform 0.2s;
-    font-size: 2rem; }
+    transition: transform 0.2s; }
     .nav__link svg {
       width: 20px; }
     .nav__link:hover, .nav__link--active {
@@ -959,24 +962,43 @@ hr {
         width: 100%; } }
 
 @media all and (max-width: 650px) {
-  .nav__section {
-    width: 100%; }
-    .nav__section--user {
-      -ms-flex-order: -1;
-          order: -1;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-      .nav__section--user .avatar {
-        min-width: 20px;
-        height: 20px; }
-      .nav__section--user svg {
+  .mobile__logo {
+    font-family: "Spectral", serif;
+    font-weight: 600;
+    display: block; }
+  .nav {
+    padding: 1rem 0 0 0; }
+    .nav__section {
+      width: 100%;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+      .nav__section--user {
+        -ms-flex-order: -1;
+            order: -1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav__section--user .avatar {
+          min-width: 20px;
+          height: 20px; }
+        .nav__section--user svg {
+          display: none; }
+    .nav__item {
+      width: 33.333333%; }
+      .nav__item--logoli {
         display: none; }
-  .nav__item {
-    width: 33.333333%; }
-  .nav__link {
-    width: 100%; }
-    .nav__link svg {
-      max-width: 100%; }
-    .nav__link--logo svg {
-      width: 100%; } }
+    .nav__link {
+      width: 100%;
+      text-align: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+      .nav__link svg {
+        max-width: 100%; }
+      .nav__link--logo svg {
+        width: 100%; } }
 
 /*# sourceMappingURL=style.css.map*/

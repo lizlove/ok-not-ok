@@ -2,6 +2,10 @@
     NAVBARS
 ------------------------------------- */
 
+.mobile__logo {
+    display: none;
+}
+
 .nav {
     font-family: $serif;
     font-weight: 600;
@@ -22,6 +26,7 @@
     &__item {
         display: flex;
         margin: 0;
+        font-size: 2rem;
         &--logoli {
             margin-right: auto;
             margin-bottom: 0;
@@ -38,7 +43,6 @@
         align-items: baseline;
         justify-content: center;
         transition: transform 0.2s;
-        font-size: 2rem;
         svg {
             width: 20px;
         }
@@ -96,9 +100,18 @@
 }
 
 @media all and (max-width: 650px) {
+    .mobile__logo {
+        font-family: $serif;
+        font-weight: 600;
+        display: block;
+    }
     .nav {
+        padding: 1rem 0 0 0;
         &__section {
             width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
             &--user {
                 order: -1;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -113,9 +126,15 @@
         }
         &__item {
             width: 33.333333%;
+            &--logoli {
+                display: none;
+            }
         }
         &__link {
             width: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
             svg {
                 max-width: 100%;
             }

@@ -12,6 +12,9 @@ html
     if !locals.modalSeen
       +modalForm()
     header.top.inner
+      .mobile__logo
+        a.nav__link.nav__link--logo(href="/")
+          span #{h.siteName}
       nav.nav
         .nav__section.nav__section--pages
           li.nav__item--logoli
