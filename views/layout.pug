@@ -11,7 +11,7 @@ html
   body(class=locals.modalSeen ? '' : 'body__scroll--no')
     if !locals.modalSeen
       +modalForm()
-    header.top.inner
+    header.top.container
       .mobile__logo
         a.nav__link.nav__link--logo(href="/")
           span #{h.siteName}
@@ -26,7 +26,7 @@ html
                 span #{item.title}
     block messages
       if locals.flashes
-        .inner
+        .container
           .flash-messages
             - const categories = Object.keys(locals.flashes)
             each category in categories
@@ -44,8 +44,8 @@ html
               img.avatar(src=user.gravatar + 'd=retro')
             li.nav__item: a.nav__link(href="/logout", class=(currentPath.startsWith('/logout') ? 'nav__link--active' : '')) Logout
           else
-            li.nav__item: a.nav__link(href="/about", class=(currentPath.startsWith('/about') ? 'nav__link--active' : '')) Copyright 2018
-            li.nav__item: a.nav__link(href="mailto:oknotok2018@gmail.com", class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Contact Us
+            li.nav__item: a.nav__link(href="/about") Copyright 2018
+            li.nav__item: a.nav__link(href="mailto:oknotok2018@gmail.com") Contact Us
             li.nav__item: a.nav__link(href="/login", class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Log In
 
     block scripts

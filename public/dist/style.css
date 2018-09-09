@@ -449,7 +449,11 @@ template {
   padding: 0 20px;
   box-sizing: border-box; }
 
-.column, .columns {
+.content {
+  min-height: calc(100vh - 250px); }
+
+.column,
+.columns {
   width: 100%;
   float: left;
   box-sizing: border-box; }
@@ -464,9 +468,11 @@ template {
 @media (min-width: 550px) {
   .container {
     width: 80%; }
-  .column, .columns {
+  .column,
+  .columns {
     margin-left: 4%; }
-  .column:first-child, .columns:first-child {
+  .column:first-child,
+  .columns:first-child {
     margin-left: 0; }
   .one.column, .one.columns {
     width: 4.66666666667%; }
@@ -548,7 +554,12 @@ body {
 
 /* Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
@@ -611,7 +622,8 @@ a {
 
 /* Buttons
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button, button {
+.button,
+button {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -649,7 +661,8 @@ input[type="submit"], input[type="reset"], input[type="button"] {
   cursor: pointer;
   box-sizing: border-box; }
 
-.button:hover, button:hover {
+.button:hover,
+button:hover {
   color: #FFF;
   border-color: #FFF;
   outline: 0; }
@@ -659,7 +672,8 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
   border-color: #FFF;
   outline: 0; }
 
-.button:focus, button:focus {
+.button:focus,
+button:focus {
   color: #FFF;
   border-color: #FFF;
   outline: 0; }
@@ -669,7 +683,8 @@ input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focu
   border-color: #FFF;
   outline: 0; }
 
-.button.button-primary, button.button-primary {
+.button.button-primary,
+button.button-primary {
   color: #FFF;
   background-color: #D0021B;
   border-color: #FFF; }
@@ -679,7 +694,8 @@ input[type="submit"].button-primary, input[type="reset"].button-primary, input[t
   background-color: #D0021B;
   border-color: #FFF; }
 
-.button.button-primary:hover, button.button-primary:hover {
+.button.button-primary:hover,
+button.button-primary:hover {
   color: #FFF;
   background-color: #D0021B;
   border-color: #FFF; }
@@ -689,7 +705,8 @@ input[type="submit"].button-primary:hover, input[type="reset"].button-primary:ho
   background-color: #D0021B;
   border-color: #FFF; }
 
-.button.button-primary:focus, button.button-primary:focus {
+.button.button-primary:focus,
+button.button-primary:focus {
   color: #FFF;
   background-color: #D0021B;
   border-color: #FFF; }
@@ -711,7 +728,8 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 
 /* Forms
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-textarea, select {
+textarea,
+select {
   height: 38px;
   padding: 6px 10px;
   /* The 6px vertically centers text on FF, ignored by Webkit */
@@ -739,11 +757,13 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focu
   border: 1px solid #303030;
   outline: 0; }
 
-textarea:focus, select:focus {
+textarea:focus,
+select:focus {
   border: 1px solid #303030;
   outline: 0; }
 
-label, legend {
+label,
+legend {
   display: block;
   margin-bottom: .5rem;
   font-weight: 600; }
@@ -773,11 +793,13 @@ ol {
 ul {
   padding-left: 0;
   margin-top: 0; }
-  ul ul, ul ol {
+  ul ul,
+  ul ol {
     margin: 1.5rem 0 1.5rem 3rem;
     font-size: 90%; }
 
-ol ol, ol ul {
+ol ol,
+ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 
@@ -802,26 +824,41 @@ pre > code {
 
 /* Tables
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-th, td {
+th,
+td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #FFF; }
 
-th:first-child, td:first-child {
+th:first-child,
+td:first-child {
   padding-left: 0; }
 
-th:last-child, td:last-child {
+th:last-child,
+td:last-child {
   padding-right: 0; }
 
 /* Spacing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-button, .button {
+button,
+.button {
   margin-bottom: 1rem; }
 
-input, textarea, select, fieldset {
+input,
+textarea,
+select,
+fieldset {
   margin-bottom: 1.5rem; }
 
-pre, blockquote, dl, figure, table, p, ul, ol, form {
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
   margin-bottom: 2.5rem; }
 
 /* Utilities
@@ -851,7 +888,9 @@ hr {
 /* Clearing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Self Clearing Goodness */
-.container:after, .row:after, .u-cf {
+.container:after,
+.row:after,
+.u-cf {
   content: "";
   display: table;
   clear: both; }
@@ -892,8 +931,8 @@ hr {
     -ms-flex-align: end;
         align-items: flex-end; }
     .nav__section--user > li {
-      font-size: 2rem;
-      font-family: "Libre Franklin", sans-serif; }
+      font-size: 1.5rem;
+      font-family: "Spectral", serif; }
   .nav__item {
     display: -ms-flexbox;
     display: flex;
@@ -937,9 +976,7 @@ hr {
         justify-content: center;
     -ms-flex-align: baseline;
         align-items: baseline;
-    color: #FFF;
-    font-family: 'Panama';
-    font-weight: 600; }
+    padding: 3rem 0; }
 
 @media all and (max-width: 1200px) {
   .nav__link {

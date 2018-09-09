@@ -3,7 +3,7 @@ extends layout
 include mixins/_storyCard
 
 block content
-	.inner
-	.stories.inner
+	.container
+	.stories.container
 		each story in stories
 			+storyCard(story, page, count)

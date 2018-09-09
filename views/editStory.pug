@@ -4,7 +4,7 @@ include mixins/_storyForm
 include mixins/_deleteForm
 
 block content 
-	.inner
+	.container
 		+storyForm(story, title)
 		if story
 			+deleteForm(story)

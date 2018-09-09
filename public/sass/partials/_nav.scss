@@ -19,8 +19,8 @@
         justify-content: flex-end;
         align-items: flex-end;
         &--user>li {
-            font-size: 2rem;
-            font-family: $sans;
+            font-size: 1.5rem;
+            font-family: $serif;
         }
     }
     &__item {
@@ -65,9 +65,8 @@
         display: flex;
         justify-content: center;
         align-items: baseline;
-        color: $white;
-        font-family: 'Panama';
-        font-weight: 600;
+        padding: 3rem 0;
+
     }
 }
 
