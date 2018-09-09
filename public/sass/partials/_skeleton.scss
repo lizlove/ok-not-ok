@@ -197,8 +197,9 @@
     /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #222;
+    font-family: $sans;
+    color: $white;
+    background-color: $red;
   }
   
   /* Typography
@@ -208,6 +209,7 @@
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
+    font-family: $serif;
   }
   
   h1 {
@@ -276,9 +278,9 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   
   a {
-    color: #1EAEDB;
+    color: $white;
     &:hover {
-      color: #0FA0CE;
+      color: $grey;
     }
   }
   
@@ -289,7 +291,7 @@
     display: inline-block;
     height: 38px;
     padding: 0 30px;
-    color: #555;
+    color: $white;
     text-align: center;
     font-size: 11px;
     font-weight: 600;
@@ -300,7 +302,7 @@
     white-space: nowrap;
     background-color: transparent;
     border-radius: 4px;
-    border: 1px solid #bbb;
+    border: 1px solid $white;
     cursor: pointer;
     box-sizing: border-box;
   }
@@ -310,7 +312,7 @@
       display: inline-block;
       height: 38px;
       padding: 0 30px;
-      color: #555;
+      color: $white;
       text-align: center;
       font-size: 11px;
       font-weight: 600;
@@ -319,88 +321,88 @@
       text-transform: uppercase;
       text-decoration: none;
       white-space: nowrap;
-      background-color: transparent;
+      background-color: $red;
       border-radius: 4px;
-      border: 1px solid #bbb;
+      border: 1px solid $white;
       cursor: pointer;
       box-sizing: border-box;
     }
   }
   
   .button:hover, button:hover {
-    color: #333;
-    border-color: #888;
+    color: $white;
+    border-color: $white;
     outline: 0;
   }
   
   input {
     &[type="submit"]:hover, &[type="reset"]:hover, &[type="button"]:hover {
-      color: #333;
-      border-color: #888;
+      color: $white;
+      border-color: $white;
       outline: 0;
     }
   }
   
   .button:focus, button:focus {
-    color: #333;
-    border-color: #888;
+    color: $white;
+    border-color: $white;
     outline: 0;
   }
   
   input {
     &[type="submit"]:focus, &[type="reset"]:focus, &[type="button"]:focus {
-      color: #333;
-      border-color: #888;
+      color: $white;
+      border-color: $white;
       outline: 0;
     }
   }
   
   .button.button-primary, button.button-primary {
     color: #FFF;
-    background-color: #33C3F0;
-    border-color: #33C3F0;
+    background-color: $red;
+    border-color: $white;
   }
   
   input {
     &[type="submit"].button-primary, &[type="reset"].button-primary, &[type="button"].button-primary {
-      color: #FFF;
-      background-color: #33C3F0;
-      border-color: #33C3F0;
+      color: $white;
+      background-color: $red;
+      border-color: $white;
     }
   }
   
   .button.button-primary:hover, button.button-primary:hover {
-    color: #FFF;
-    background-color: #1EAEDB;
-    border-color: #1EAEDB;
+    color: $white;
+    background-color: $red;
+    border-color: $white;
   }
   
   input {
     &[type="submit"].button-primary:hover, &[type="reset"].button-primary:hover, &[type="button"].button-primary:hover {
-      color: #FFF;
-      background-color: #1EAEDB;
-      border-color: #1EAEDB;
+      color: $white;
+      background-color: $red;
+      border-color: $white;
     }
   }
   
   .button.button-primary:focus, button.button-primary:focus {
-    color: #FFF;
-    background-color: #1EAEDB;
-    border-color: #1EAEDB;
+    color: $white;
+    background-color: $red;
+    border-color: $white;
   }
   
   input {
     &[type="submit"].button-primary:focus, &[type="reset"].button-primary:focus, &[type="button"].button-primary:focus {
-      color: #FFF;
-      background-color: #1EAEDB;
-      border-color: #1EAEDB;
+      color: $white;
+      background-color: $red;
+      border-color: $white;
     }
     &[type="email"], &[type="number"], &[type="search"], &[type="text"], &[type="tel"], &[type="url"], &[type="password"] {
       height: 38px;
       padding: 6px 10px;
       /* The 6px vertically centers text on FF, ignored by Webkit */
-      background-color: #fff;
-      border: 1px solid #D1D1D1;
+      background-color: $red;
+      border: 1px solid $white;
       border-radius: 4px;
       box-shadow: none;
       box-sizing: border-box;
@@ -414,8 +416,8 @@
     height: 38px;
     padding: 6px 10px;
     /* The 6px vertically centers text on FF, ignored by Webkit */
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
+    background-color: $white;
+    border: 1px solid $black;
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box;
@@ -442,13 +444,13 @@
   
   input {
     &[type="email"]:focus, &[type="number"]:focus, &[type="search"]:focus, &[type="text"]:focus, &[type="tel"]:focus, &[type="url"]:focus, &[type="password"]:focus {
-      border: 1px solid #33C3F0;
+      border: 1px solid $black;
       outline: 0;
     }
   }
   
   textarea:focus, select:focus {
-    border: 1px solid #33C3F0;
+    border: 1px solid $black;
     outline: 0;
   }
   
@@ -533,7 +535,7 @@
   th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid $white;
   }
   
   th:first-child, td:first-child {
@@ -587,7 +589,7 @@
     margin-top: 3rem;
     margin-bottom: 3.5rem;
     border-width: 0;
-    border-top: 1px solid #E1E1E1;
+    border-top: 1px solid $white;
   }
   
   /* Clearing
