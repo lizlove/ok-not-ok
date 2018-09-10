@@ -1497,4 +1497,24 @@ label {
     transform: translateX(0);
     opacity: 1; } }
 
+/* -------------------------------------
+    TABLE
+------------------------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse; }
+  .table__description {
+    font-size: 2.4rem;
+    line-height: 1.35;
+    letter-spacing: -.08rem;
+    font-family: "Spectral", serif; }
+    @media all and (max-width: 650px) {
+      .table__description {
+        font-size: 1.8rem;
+        line-height: 1.5;
+        letter-spacing: -.05rem;
+        font-family: "Spectral", serif; } }
+  .table__results {
+    width: 60%; }
+
 /*# sourceMappingURL=style.css.map*/
