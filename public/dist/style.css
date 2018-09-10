@@ -1315,13 +1315,10 @@ label {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
-  max-width: 800px; }
+  padding: 9rem 6rem; }
   @media all and (max-width: 650px) {
     .stories {
-      margin-top: 3rem;
-      margin-bottom: 3rem; } }
+      padding: 3rem 0; } }
 
 .story {
   background: #D0021B;
@@ -1341,6 +1338,9 @@ label {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center; }
+    @media all and (max-width: 650px) {
+      .story .story__content {
+        margin-bottom: 2rem; } }
     .story .story__content--edit {
       font-size: 10px;
       border-bottom: 0; }
@@ -1369,8 +1369,7 @@ label {
             margin: 0 0 0 2rem;
             max-height: 1.8rem; } }
     .story .story__content h3 {
-      text-align: center;
-      max-width: 800px; }
+      text-align: center; }
       @media all and (max-width: 650px) {
         .story .story__content h3 {
           font-size: 1.8rem;
@@ -1382,11 +1381,24 @@ label {
 ------------------------------------- */
 .ratings {
   position: relative;
-  margin: 4rem 0; }
+  margin: 4rem auto; }
+  @media all and (max-width: 650px) {
+    .ratings .button__rating {
+      padding: 0 10px; } }
   .ratings .button__rating:hover {
     -ms-transform: scale(1.05);
         transform: scale(1.05); }
   .ratings .button__rating:first-of-type {
     margin-right: 6rem; }
+    @media all and (max-width: 650px) {
+      .ratings .button__rating:first-of-type {
+        margin-right: 1rem; } }
+  @media all and (max-width: 650px) {
+    .ratings {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      margin: auto; } }
 
 /*# sourceMappingURL=style.css.map*/

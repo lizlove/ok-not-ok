@@ -4,15 +4,26 @@
 
 .ratings {
     position: relative;
-    margin: 4rem 0;
+    margin: 4rem auto;
     .button {
         &__rating {
+            @media all and (max-width: 650px) {
+              padding: 0 10px;
+            }
             &:hover {
               transform: scale(1.05);
             }
             &:first-of-type {
                 margin-right: 6rem;
+                @media all and (max-width: 650px) {
+                  margin-right: 1rem;
+                }
             }
         }
+    }
+    @media all and (max-width: 650px) {
+      display: flex;
+      flex-direction: row;
+      margin: auto; 
     }
 }

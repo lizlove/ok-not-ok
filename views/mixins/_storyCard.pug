@@ -3,7 +3,7 @@ include ./_resultCard
 include ./_storyResults
 
 mixin storyCard(story, page, count)
-	.story
+	.story.twelve.columns
 		.story__content
 			if page > 1
 				a(href=`/stories/page/${parseInt(page) - 1}`)
