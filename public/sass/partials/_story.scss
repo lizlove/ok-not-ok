@@ -5,9 +5,11 @@
 .stories {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 9rem;
-    margin-bottom: 9rem;
+    margin: 9rem 0;
     max-width: 800px;
+    @media all and (max-width: 650px) {
+        margin: 3rem 0;
+    }
 }
 
 .story {
@@ -34,10 +36,15 @@
             margin-top: 0;
             &--left {
                 margin: 0 8rem 0 0;
-                max-height: 30px;
+                max-height: 28px;
                 &--hidden {
                     visibility: hidden;
                 }
+                @media all and (max-width: 650px) {
+                    margin: 0 2rem 0 0;
+                    max-height: 1.8rem;
+                }
+
             }
             &--right {
                 margin: 0 0 0 8rem;
@@ -45,11 +52,20 @@
                 &--hidden {
                     visibility: hidden;
                 }
+                @media all and (max-width: 650px) {
+                    margin: 0 0 0 2rem;
+                    max-height: 1.8rem;
+                }
             }
         }
-        h2 {
+        h3 {
             text-align: center;
             max-width: 800px;
+            @media all and (max-width: 650px) {
+                font-size: 1.8rem;
+                line-height: 1.5;
+                letter-spacing: -.05rem;
+            }
         }
     }
 }

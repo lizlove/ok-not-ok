@@ -15,9 +15,10 @@
 }
 
 .flash {
-  background: #595959;
+  background: $gray;
   box-shadow: $shad;
   margin-bottom: 2rem;
+  color: $black;
   padding: 2rem;
   position: relative;
   z-index: 1;
@@ -44,7 +45,7 @@
     font-weight: 100;
     margin-bottom: 0;
     &:hover {
-      color: $white;
+      color: $grey;
     }
   }
   &:after {
@@ -61,15 +62,15 @@
     border-radius: 4px;
   }
   &--success {
-    background: #595959;
+    background: $gray;
   }
   &--error {
-    background: #595959;
+    background: $gray;
     color: $red;
     font-weight: bold;
   }
   &--info {
-    background: #595959;
+    background: $gray;
   }
   p {
     margin: 0;

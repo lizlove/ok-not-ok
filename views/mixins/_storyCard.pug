@@ -10,7 +10,7 @@ mixin storyCard(story, page, count)
 					img(src=`/images/icons/left-arrow.svg` class='story__arrows--left')
 			else
 				img(src=`/images/icons/left-arrow.svg` class='story__arrows--left--hidden')
-			h2= story.description
+			h3= story.description
 			if user
 				a(class="story__content--edit" href=`/stories/${story._id}/edit`)
 					!=h.icon('pencil')

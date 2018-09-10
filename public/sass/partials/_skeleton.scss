@@ -505,14 +505,14 @@ input {
     &[type="tel"]:focus,
     &[type="url"]:focus,
     &[type="password"]:focus {
-        border: 1px solid #33C3F0;
+        border: 1px solid $yellow;
         outline: 0;
     }
 }
 
 textarea:focus,
 select:focus {
-    border: 1px solid #33C3F0;
+    border: 1px solid $yellow;
     outline: 0;
 }
 
