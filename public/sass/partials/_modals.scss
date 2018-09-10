@@ -90,11 +90,11 @@
     }
 }
 
+.modal__button:last-of-type {
+    margin-right: 0;
+}
+
 .modal__text {
     font-size: 1.1rem;
     margin-top: 2rem;
-}
-
-.modal__button:last-of-type {
-    margin-right: 0;
 }

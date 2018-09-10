@@ -37,7 +37,7 @@
 }
 
 .content {
-  min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 250px);
 }
 
 .column,
@@ -311,7 +311,7 @@ p {
 a {
     color: $white;
     &:hover {
-        color: $grey;
+        color: darken($white, 10%);
     }
 }
 
@@ -364,7 +364,7 @@ input {
 }
 
 .button:hover,
-button:hover {
+button {
     color: $white;
     border-color: $white;
     outline: 0;
@@ -439,29 +439,22 @@ button.button-primary:focus {
 }
 
 input {
-    &[type="submit"].button-primary:focus,
-    &[type="reset"].button-primary:focus,
-    &[type="button"].button-primary:focus {
-        color: $white;
-        background-color: $red;
-        border-color: $white;
-    }
-    &[type="email"],
-    &[type="number"],
-    &[type="search"],
-    &[type="text"],
-    &[type="tel"],
-    &[type="url"],
-    &[type="password"] {
-        height: 38px;
-        padding: 6px 10px;
-        /* The 6px vertically centers text on FF, ignored by Webkit */
-        background-color: $red;
-        border: 1px solid $white;
-        border-radius: 4px;
-        box-shadow: none;
-        box-sizing: border-box;
-    }
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+      height: 38px;
+      padding: 6px 10px;
+      /* The 6px vertically centers text on FF, ignored by Webkit */
+      background-color: #fff;
+      border: 1px solid #D1D1D1;
+      border-radius: 4px;
+      box-shadow: none;
+      box-sizing: border-box;
+  }
 }
 
 /* Forms
@@ -472,8 +465,8 @@ select {
     height: 38px;
     padding: 6px 10px;
     /* The 6px vertically centers text on FF, ignored by Webkit */
-    background-color: $white;
-    border: 1px solid $black;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box;
@@ -512,14 +505,14 @@ input {
     &[type="tel"]:focus,
     &[type="url"]:focus,
     &[type="password"]:focus {
-        border: 1px solid $black;
+        border: 1px solid #33C3F0;
         outline: 0;
     }
 }
 
 textarea:focus,
 select:focus {
-    border: 1px solid $black;
+    border: 1px solid #33C3F0;
     outline: 0;
 }
 
