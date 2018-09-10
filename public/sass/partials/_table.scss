@@ -3,30 +3,21 @@
 ------------------------------------- */
 
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  padding: 5px;
-  &__description {
-      font-size: 3rem;
-      line-height: 3.5rem;
-      font-family: "Spectral", serif;
-      font-weight: 600;
-      letter-spacing: 1px;
-      width: 45%;
-      vertical-align: middle;
-      padding: 10px 30px 10px 5px;
-  }
-  &__results {
-      width: 50%;
-      padding: 10px 5px;
-  }
-  &__row {
-    border-bottom: 2px solid white;
-  }
-  &__div {
-    margin: 0 0 3rem 0;
-    .results__heading {
-      font-size: 2rem;
+    width: 100%;
+    border-collapse: collapse;
+    &__description {
+        font-size: 2.4rem;
+        line-height: 1.35;
+        letter-spacing: -.08rem;
+        font-family: $serif;
+        @media all and (max-width: 650px) {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            letter-spacing: -.05rem;
+            font-family: $serif;
+        } 
     }
-  }
+    &__results {
+        width: 60%;
+    } 
 }

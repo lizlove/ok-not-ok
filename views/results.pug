@@ -3,21 +3,21 @@ extends layout
 include ./mixins/_storyResults
 
 block content
-  .inner
-    h3 Results
+  .container
+    h2 Results
     table.table
       each result, i in results 
         tr.table__row 
           td.table__description #{result.description}
           td(class="results table__results")
             div(class="results__row table__div")
-              h3.results__heading Not Ok
+              h5.results__heading Not Ok
               - let percentNot = 100 - result.percentOk
               - let nots = [result.nonbinaryNot, result.femaleNot, result.maleNot];
               - let [nonbinNot, femaleNot, maleNot] = nots.map(rating => Math.round((rating / result.totalNot) * 100))
               +storyResults(percentNot, nonbinNot, femaleNot, maleNot)
             div(class="results__row table__div")
-              h3.results__heading Ok
+              h5.results__heading Ok
               - let oks = [result.nonbinaryOk, result.femaleOk, result.maleOk];
               - let [nonbinOk, femaleOk, maleOk] = oks.map(rating => Math.round((rating / result.totalOk) * 100))
               +storyResults(result.percentOk, nonbinOk, femaleOk, maleOk)

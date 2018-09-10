@@ -4,6 +4,12 @@
 
 .results {
     width: 100%;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    @media all and (max-width: 650px) {
+        padding: 0;
+    }
+
     &__heading {
         margin: 0;
         width: 32%;
@@ -33,9 +39,12 @@
         animation: 1s lightspeed-in ease forwards;
     }
     &__stats {
-        font-weight: 600;
         & > p {
+            font-size: 1.1rem;
+            font-weight: 600;
             line-height: 2rem;
+            letter-spacing: .1rem;
+            margin-bottom: 1rem;
         }
     }
 }
