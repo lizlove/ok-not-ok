@@ -2,6 +2,6 @@ mixin storyResults(...items)
     - let [total, nonbin, fem, male] = items.map(item => item ? item.toString() + '%' : '0%')
     .results__row--bar
         .results__stats
-            p Votes: !{nonbin} nonbinary / !{fem} female / !{male} male
+            p !{nonbin} nonbinary / !{fem} female / !{male} male
         .results__container
             div(class="results__bar" style={width: total, background: '#a9a9a9', height: '4rem'}) !{total}
