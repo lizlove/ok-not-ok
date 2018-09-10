@@ -5,10 +5,12 @@
 .stories {
     display: flex;
     flex-wrap: wrap;
-    margin: 9rem 0;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     max-width: 800px;
     @media all and (max-width: 650px) {
-        margin: 3rem 0;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 }
 
