@@ -12,7 +12,7 @@ Submit to Ok, Not Ok and see what the world thinks. Type your sort in on the sub
  While you are on the site, click through other stories to provide your own feedback on ambiguous encounters. Your opinion matters!	
 
 <!-- TODO: Replace with gifs from hosted site -->	
-![Sorting Hat Bot for Slack](http://sorting-hat-bot.herokuapp.com/images/rating.gif)	
+![Provide feedback to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/rating.gif)	
 
 ## About Ok, Not Ok	
  A few of us were having a conversation over lunch and saw a need for an anonymous platform that allows people to either post or vote on ambiguous encounters.  Ok, Not Ok is the result.  We do not claim to be experts or authorities.  That said, please be kind and respectful. 	
