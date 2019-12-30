@@ -1,6 +1,6 @@
 {
   "name": "ok-not-ok",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -22,9 +22,9 @@
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "connect-flash": "0.1.1",
-    "connect-mongo": "1.3.2",
+    "connect-mongo": "^3.2.0",
     "cookie-parser": "1.4.3",
-    "dompurify": "0.8.5",
+    "dompurify": "^2.0.7",
     "dotenv": "4.0.0",
     "es6-promisify": "5.0.0",
     "express": "^4.17.1",
@@ -37,7 +37,7 @@
     "juice": "^4.3.2",
     "md5": "2.2.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.7.7",
+    "mongoose": "^5.8.3",
     "mongoose-mongodb-errors": "0.0.2",
     "multer": "1.3.0",
     "nodemailer": "3.1.5",
@@ -55,7 +55,7 @@
     "babel-loader": "6.4.0",
     "babel-preset-env": "^1.7.0",
     "concurrently": "3.4.0",
-    "css-loader": "0.28.11",
+    "css-loader": "^3.4.0",
     "extract-text-webpack-plugin": "2.1.0",
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
