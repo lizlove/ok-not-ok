@@ -1,27 +1,27 @@
-const express = require('express');
-const session = require('express-session');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const promisify = require('es6-promisify');
-const flash = require('connect-flash');
-const expressValidator = require('express-validator');
-const routes = require('./routes/index');
-const helpers = require('./helpers');
-const errorHandlers = require('./handlers/errorHandlers');
-require('./handlers/passport');
+const express = require("express");
+const session = require("express-session");
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const promisify = require("es6-promisify");
+const flash = require("connect-flash");
+const expressValidator = require("express-validator");
+const routes = require("./routes/index");
+const helpers = require("./helpers");
+const errorHandlers = require("./handlers/errorHandlers");
+require("./handlers/passport");
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
-app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
+app.set("views", path.join(__dirname, "views")); // this is the folder where we keep our pug files
+app.set("view engine", "pug"); // we use the engine pug, mustache or EJS work great too
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
@@ -35,14 +35,16 @@ app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
-app.use(session({
-  secret: process.env.SECRET,
-  key: process.env.KEY,
-  resave: false,
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 31557600 }
-}));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    key: process.env.KEY,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 31557600 }
+  })
+);
 
 // Passport JS is used handle our logins
 app.use(passport.initialize());
@@ -58,9 +60,16 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
   // whitelist for login and registration routes to avoid popping the modal
-  if (req.path === '/login' || req.path === '/register' || req.path === '/account') {
+  if (
+    req.path === "/login" ||
+    req.path === "/register" ||
+    req.path === "/account"
+  ) {
     res.locals.modalSeen = true;
-  } else if (res.locals.user && res.locals.user.gender || req.session.gender) {
+  } else if (
+    (res.locals.user && res.locals.user.gender) ||
+    req.session.gender
+  ) {
     res.locals.modalSeen = true;
   } else {
     res.locals.modalSeen = false;
@@ -75,7 +84,10 @@ app.use((req, res, next) => {
 });
 
 // After allllll that above middleware, we finally handle our own routes!
-app.use('/', routes);
+app.all("/", function(req, res) {
+  res.redirect("/stories/page/1");
+});
+app.use("/", routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
@@ -84,7 +96,7 @@ app.use(errorHandlers.notFound);
 app.use(errorHandlers.flashValidationErrors);
 
 // otherwise this was a really bad error we didn't expect! eek
-if (app.get('env') === 'development') {
+if (app.get("env") === "development") {
   /* Development Error Handler - Prints stack trace */
   app.use(errorHandlers.developmentErrors);
 }

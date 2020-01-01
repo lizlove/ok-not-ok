@@ -3,12 +3,13 @@
 ------------------------------------- */
 
 html {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 body {
-    font-size: 1.5rem;
-    color: $white;
+  font-size: 1.5rem;
+  color: $white;
+  letter-spacing: 1px;
 }
 
 h1,
@@ -16,76 +17,80 @@ h2,
 h3,
 h4,
 h5,
-h6,
-    {
-    font-size: 4rem;
-    font-family: $serif;
-    font-weight: 600;
-    letter-spacing: 1px;
+h6 {
+  font-size: 4rem;
+  font-family: $serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }
 
 h3 {
-    font-size: 3.6rem;
+  font-size: 3.6rem;
 }
 
 a {
-    text-decoration: underline;
-    color: $white;
+  text-decoration: underline;
+  color: $white;
 }
 
 p a {
-    font-family: $sans;
-    border-bottom: 2px solid $white;
+  font-family: $sans;
+  border-bottom: 2px solid $white;
 }
 
 p {
-    line-height: 2;
-    font-size: 1.6rem;
+  line-height: 2;
+  font-size: 1.6rem;
 }
 
 li {
-    font-size: 2rem;
-    line-height: 2rem;
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 .title {
-    word-wrap: break-word;
-    position: relative;
-    z-index: 2;
-    margin: 0;
-    font-size: 40px;
-    z-index: 2;
-    line-height: 1.1;
-    transform: skew(0, -3deg);
-    &--long {
-        font-size: 30px;
-    }
-    &:before {
-        content: '';
-        width: 50px;
-        left: 0;
-        top: 0;
-        height: 100%;
-        display: block;
-        position: absolute;
-        z-index: -1;
-        transform: skew(-5deg)
-    }
-    line-height:1.1; // inline link inside
-    a {
-        border-bottom: 1;
-        $whitea: rgba($white, 0.8);
-        background-image: linear-gradient(to right, $whitea 100%, $whitea 50%);
-    }
+  word-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 40px;
+  z-index: 2;
+  line-height: 1.1;
+  transform: skew(0, -3deg);
+  &--long {
+    font-size: 30px;
+  }
+  &:before {
+    content: "";
+    width: 50px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform: skew(-5deg);
+  }
+  line-height: 1.1; // inline link inside
+  a {
+    border-bottom: 1;
+    $whitea: rgba($white, 0.8);
+    background-image: linear-gradient(to right, $whitea 100%, $whitea 50%);
+  }
 }
 
 .title--single {
-    max-width: 600px;
-    margin-top: -9rem;
-    font-size: 10rem;
-    text-align: center;
+  max-width: 600px;
+  margin-top: -9rem;
+  font-size: 10rem;
+  text-align: center;
 }
 
 .agreement--link {
-    color: $black;
+  color: $black;
+}
+
+.sitetitle {
+  font-weight: 700;
+  padding: 0 3px;
 }
