@@ -5,7 +5,7 @@ Think that someone is over-reacting and want some crowd-sourced backup?
 
 <!-- TODO: Replace with prod URL -->
 
-Submit to [Ok, Not Ok](https://www.google.com) and see what the world thinks!
+<!-- Submit to [Ok, Not Ok](https://www.google.com) and see what the world thinks! -->
 
 ## Share your story
 
@@ -13,7 +13,7 @@ Submit to Ok, Not Ok and see what the world thinks. Type your sort in on the sub
 
 <!-- TODO: Replace with gifs from hosted site -->
 
-![Submit to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/submit.gif)
+<!-- ![Submit to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/submit.gif) -->
 
 ## Provide feedback
 
@@ -21,7 +21,7 @@ While you are on the site, click through other stories to provide your own feedb
 
 <!-- TODO: Replace with gifs from hosted site -->
 
-![Provide feedback to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/rating.gif)
+<!-- ![Provide feedback to Ok, Not Ok](http://sorting-hat-bot.herokuapp.com/images/rating.gif) -->
 
 ## About Ok, Not Ok
 
