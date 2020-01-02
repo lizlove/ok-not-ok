@@ -23,7 +23,7 @@ exports.createStory = async (req, res) => {
 };
 
 exports.getStories = async (req, res) => {
-  // TODO: fix pagination to generate a random story without repeating.
+  // TODO: Randomize
   let page = req.params.page || 1;
   const limit = 1;
   const skip = page * limit - limit;
@@ -31,7 +31,6 @@ exports.getStories = async (req, res) => {
     .populate("ratings")
     .skip(skip)
     .limit(limit);
-
   const countPromise = Story.countDocuments();
   const [stories, count] = await Promise.all([storiesPromise, countPromise]);
   res.render("stories", { title: "Stories", stories, page, count });
@@ -114,6 +113,11 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+function shuffleFisherYates(array) {
+  let i = array.length;
+  while (i--) {
+    const ri = Math.floor(Math.random() * (i + 1));
+    [array[i], array[ri]] = [array[ri], array[i]];
+  }
+  return array;
 }
