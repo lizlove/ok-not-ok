@@ -23,6 +23,7 @@ exports.createStory = async (req, res) => {
 };
 
 exports.getStories = async (req, res) => {
+  // TODO: fix pagination to generate a random story without repeating.
   let page = req.params.page || 1;
   const limit = 1;
   const skip = page * limit - limit;
@@ -33,7 +34,8 @@ exports.getStories = async (req, res) => {
 
   const countPromise = Story.countDocuments();
   const [stories, count] = await Promise.all([storiesPromise, countPromise]);
-  res.render("stories", { title: "Stories", stories, page, count });
+  shuffle(stories);
+  res.render("stories", { title: "Stories", shuf, page, count });
 };
 
 exports.getStoryBySlug = async (req, res, next) => {
@@ -111,4 +113,8 @@ exports.deleteStory = async (req, res) => {
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
 }

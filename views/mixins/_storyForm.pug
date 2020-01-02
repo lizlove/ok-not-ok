@@ -8,8 +8,8 @@ mixin storyForm(story = {})
 		- const choices = ['Female', 'Male', 'Nonbinary']
 		- const gender = story.gender || [];
 		ul.tags
-			each choice in choices 
+			each choice in choices
 				.tag.tag__choice
-					input(type='radio' id=choice value=choices.findIndex(gen => gen === choice) name='gender' checked=(choices.indexOf(choice) === gender))
+					input(type='radio' id=choice value=choices.findIndex(gen => gen === choice) name='gender' checked=(choices.indexOf(choice) === gender), required)
 					label(for=choice) #{choice}
 		input(type='submit' value='Save →' class='button')

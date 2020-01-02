@@ -41,7 +41,8 @@ router.post("/add/:id", catchErrors(storyController.updateStory));
 
 router.get("/login", userController.loginForm);
 router.post("/login", authController.login);
-router.get("/register", userController.registerForm);
+// Disable registration.
+// router.get("/register", userController.registerForm);
 
 // registration with validation and autologin
 router.post(
