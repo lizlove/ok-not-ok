@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Story = mongoose.model("Story"); //Singleton from mongoose
+const vault = [];
 
 exports.homePage = (req, res) => {
   res.render("index");
@@ -23,7 +24,6 @@ exports.createStory = async (req, res) => {
 };
 
 exports.getStories = async (req, res) => {
-  // TODO: Randomize
   let page = req.params.page || 1;
   const limit = 1;
   const skip = page * limit - limit;
@@ -33,6 +33,13 @@ exports.getStories = async (req, res) => {
     .limit(limit);
   const countPromise = Story.countDocuments();
   const [stories, count] = await Promise.all([storiesPromise, countPromise]);
+  // if (vault.length) {
+  //   stories.filter(story => {
+  //     !vault.includes(story);
+  //   });
+  // }
+  // let story = shuffleFisherYates(stories)[0];
+  vault.push(stories);
   res.render("stories", { title: "Stories", stories, page, count });
 };
 
