@@ -1,5 +1,5 @@
 mixin ratingForm(story)
   form.ratings(action=`/rating/${story._id}?rating=1` method="POST")
     input(type='hidden' name='story' value=story._id)
-    button(type='submit' class='button button__rating') Hey, that's ok
-    button(type='submit' class='button button__rating' formaction=`/rating/${story._id}?rating=0`) No way, not ok
+    button(type='submit' class='button button__rating') Hey, that's ok 👍
+    button(type='submit' class='button button__rating' formaction=`/rating/${story._id}?rating=0`) No way, not ok 👎
