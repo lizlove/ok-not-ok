@@ -11,7 +11,7 @@ exports.getAbout = async (req, res) => {
 };
 
 exports.addStory = (req, res) => {
-  res.render("editStory", { title: "Add Story" }); //use same template for add and edit story
+  res.render("editStory", { title: "Add a Story" }); //use same template for add and edit story
 };
 
 exports.createStory = async (req, res) => {
