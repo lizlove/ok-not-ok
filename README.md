@@ -22,3 +22,14 @@ While you are on the site, click through other stories to provide your own feedb
 A few of us were having a conversation over lunch and saw a need for an anonymous platform that allows people to either post or vote on ambiguous encounters. Ok, Not Ok is the result. We do not claim to be experts or authorities. That said, please be kind and respectful.
 
 ![Be excellent to each other](https://media.giphy.com/media/HM7hTQhsjSIFy/giphy.gif)
+
+## TODO:
+
+- Add a default loading function from Alex (EL)
+- Welcome idenification copy to the modal (LK)
+- Randomizing the entries but in a consistant way (EL)
+- Formatting on the buttons (EL)
+- Formatting the About page. (EL)
+- Only show the results once Ok or not Ok is selected. Add next buttton in bottom area. (sticky header?)
+- Add terms (LK)
+- \*\*Consider moving submission to Google form with admin doing manual addition of entries.
